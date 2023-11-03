@@ -1,11 +1,11 @@
 import { RouteObject } from "react-router-dom";
-import Home from "../components/Home/home";
 import ErrorPage from "../components/ErrorPage/error-page";
+import App from "../App";
 
 export const routes: RouteObject[] = [
    {
       path: "/",
-      element: <Home />,
+      element: <App />,
       errorElement: <ErrorPage />,
    },
 ];
