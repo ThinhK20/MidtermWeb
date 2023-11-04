@@ -49,14 +49,14 @@ export default function Gallery() {
    // };
 
    return (
-      <div className="py-20 px-4">
+      <div className="py-10 px-4">
          {!loading && (
             <div className="grid grid-cols-4 gap-4">
                {images.map((image, index) => {
                   return (
                      <div
                         key={index}
-                        className="w-full  my-2 overflow-hidden shadow-lg  bg-slate-900 rounded"
+                        className="w-full  my-2 overflow-hidden shadow-lg  bg-theme rounded"
                      >
                         <Link to="#">
                            <img
