@@ -1,6 +1,11 @@
-﻿namespace Midterm
+﻿using AutoMapper;
+
+namespace Midterm
 {
-    public class MapperConfig
+    public class MapperConfig : Profile
     {
+        public MapperConfig()
+        {
+        }
     }
 }
