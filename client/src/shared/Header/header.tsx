@@ -1,3 +1,6 @@
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function Header() {
    return (
       <div
@@ -313,9 +316,11 @@ export default function Header() {
                      </li>
                   </ul>
                </nav>
-
-               <a id="header-options-menu" className="header-menu">
-                  <i className="fas fa-bars header-menu-bar"></i>
+               <a
+                  id="header-options-menu"
+                  className="header-menu mr-20  transition-all rounded-full"
+               >
+                  <FontAwesomeIcon className="header-menu-bar" icon={faBars} />
                </a>
             </div>
             <div className="header-options__selection">
@@ -598,7 +603,10 @@ export default function Header() {
             <ul className="wrap-middle__list">
                <li className="wrap-middle__item">
                   <div className="wrap-middle__item-content">
-                     <a href="" className="wrap-middle__item-link">
+                     <a
+                        href=""
+                        className="wrap-middle__item-link flex flex-col items-center justify-center"
+                     >
                         <img
                            src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/t-relax.png"
                            alt=""
@@ -610,7 +618,10 @@ export default function Header() {
                </li>
                <li className="wrap-middle__item">
                   <div className="wrap-middle__item-content">
-                     <a href="" className="wrap-middle__item-link">
+                     <a
+                        href=""
+                        className="wrap-middle__item-link  flex flex-col items-center justify-center"
+                     >
                         <img
                            src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/t-cultural.png"
                            alt=""
@@ -622,7 +633,10 @@ export default function Header() {
                </li>
                <li className="wrap-middle__item">
                   <div className="wrap-middle__item-content">
-                     <a href="" className="wrap-middle__item-link">
+                     <a
+                        href=""
+                        className="wrap-middle__item-link  flex flex-col items-center justify-center"
+                     >
                         <img
                            src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/t-sport.png"
                            alt=""
@@ -634,7 +648,10 @@ export default function Header() {
                </li>
                <li className="wrap-middle__item">
                   <div className="wrap-middle__item-content">
-                     <a href="" className="wrap-middle__item-link">
+                     <a
+                        href=""
+                        className="wrap-middle__item-link  flex flex-col items-center justify-center"
+                     >
                         <img
                            src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/t-history.png"
                            alt=""

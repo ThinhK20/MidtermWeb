@@ -1,5 +1,7 @@
 import Footer from "../../shared/Footer/footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../../shared/Header/header";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons/faLocationDot";
 export default function Home() {
    return (
       <div>
@@ -410,7 +412,10 @@ export default function Home() {
                            <div className="package__review-item-body">
                               <h3 className="review-item-heading">Berlin</h3>
                               <h5 className="review-item-sub-heading">
-                                 <i className="fas fa-map-marker-alt review-item-heading-icon"></i>
+                                 <FontAwesomeIcon
+                                    className="header-menu-bar mr-2 review-item-heading-icon"
+                                    icon={faLocationDot}
+                                 />
                                  Europe
                               </h5>
                               <div className="package__review-item-section">
@@ -473,7 +478,10 @@ export default function Home() {
                            <div className="package__review-item-body">
                               <h3 className="review-item-heading">Hong Kong</h3>
                               <h5 className="review-item-sub-heading">
-                                 <i className="fas fa-map-marker-alt review-item-heading-icon"></i>
+                                 <FontAwesomeIcon
+                                    className="header-menu-bar mr-2 review-item-heading-icon"
+                                    icon={faLocationDot}
+                                 />
                                  Asia
                               </h5>
                               <div className="package__review-item-section">
@@ -529,7 +537,10 @@ export default function Home() {
                                  San Francisco
                               </h3>
                               <h5 className="review-item-sub-heading">
-                                 <i className="fas fa-map-marker-alt review-item-heading-icon"></i>
+                                 <FontAwesomeIcon
+                                    className="header-menu-bar mr-2 review-item-heading-icon"
+                                    icon={faLocationDot}
+                                 />
                                  United States
                               </h5>
                               <div className="package__review-item-section">
