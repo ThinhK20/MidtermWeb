@@ -1,228 +1,571 @@
-import SliderCarousel from "../../shared/SliderCarousel/slider-carousel";
-import CarouselSliderItem from "../../shared/SliderCarousel/slider-carousel-item";
-import Gallery from "./Gallery/gallery";
-
+import Footer from "../../shared/Footer/footer";
+import Header from "../../shared/Header/header";
 export default function Home() {
    return (
       <div>
-         <div className="bg-transparent absolute top-[40%] w-[40%] left-[30%] flex flex-col gap-4">
-            <h1 className="text-white text-5xl  translate-x-[25%]">
-               Reverse: 1999
-            </h1>
-            <p className=" text-white text-xl font-extralight text-center">
-               Look at events in the past
-            </p>
+         <Header />
+         <div>
+            <div>
+               <div>
+                  <div className="flex gap-4 flex-col items-center justify-center flex-w-full">
+                     <h3 className="sub-heading__destionation">PROPOSALS</h3>
+                     <div className="heading__destionation">
+                        <h1 className="heading__destionation-main">OUR</h1>
+                        <h1 className="heading__destionation-sub">
+                           DESTINATIONS
+                        </h1>
+                     </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-4 ml-20">
+                     <div className="destionation__item-area-content destionation__item--Europe">
+                        <div className="destionation__item-area-content-wrap"></div>
+                        <div className="destionation__item-area-content-around">
+                           <h3 className="destionation__item-area-name">
+                              Europe
+                           </h3>
+                           <h3 className="destionation__item-area-amount-packages">
+                              3 PACKAGES
+                           </h3>
+                        </div>
+                        <div className="destionation__item-area-content-in">
+                           <h3 className="destionation__item-area-content-heading">
+                              Packages
+                           </h3>
+                           <div className="destionation__item-area-content-heading-list-heading">
+                              <a
+                                 href=""
+                                 className="destionation__item-area-content-heading-item"
+                              >
+                                 Berlin
+                              </a>
+                              <a
+                                 href=""
+                                 className="destionation__item-area-content-heading-item"
+                              >
+                                 Amsterdam
+                              </a>
+                              <a
+                                 href=""
+                                 className="destionation__item-area-content-heading-item"
+                              >
+                                 Tuscany
+                              </a>
+                           </div>
+                           <a
+                              href=""
+                              className="btn destionation__item-area-content-in-btn"
+                           >
+                              VIEW DESTINATION
+                           </a>
+                        </div>
+                     </div>
+                     <div className="destionation__item">
+                        <div className="destionation__item-area-content destionation__item--Thailandia">
+                           <div className="destionation__item-area-content-wrap"></div>
+                           <div className="destionation__item-area-content-around">
+                              <h3 className="destionation__item-area-name">
+                                 Thailandia
+                              </h3>
+                              <h3 className="destionation__item-area-amount-packages">
+                                 1 PACKAGES
+                              </h3>
+                           </div>
+                           <div className="destionation__item-area-content-in">
+                              <h3 className="destionation__item-area-content-heading">
+                                 Packages
+                              </h3>
+                              <div className="destionation__item-area-content-heading-list-heading">
+                                 <a
+                                    href=""
+                                    className="destionation__item-area-content-heading-item"
+                                 >
+                                    Phuket
+                                 </a>
+                              </div>
+                              <a
+                                 href=""
+                                 className="btn destionation__item-area-content-in-btn"
+                              >
+                                 VIEW DESTINATION
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div className="destionation__item">
+                        <div className="destionation__item-area-content destionation__item--Asia">
+                           <div className="destionation__item-area-content-wrap"></div>
+                           <div className="destionation__item-area-content-around">
+                              <h3 className="destionation__item-area-name">
+                                 Asia
+                              </h3>
+                              <h3 className="destionation__item-area-amount-packages">
+                                 2 PACKAGES
+                              </h3>
+                           </div>
+                           <div className="destionation__item-area-content-in">
+                              <h3 className="destionation__item-area-content-heading">
+                                 Packages
+                              </h3>
+                              <div className="destionation__item-area-content-heading-list-heading">
+                                 <a
+                                    href=""
+                                    className="destionation__item-area-content-heading-item"
+                                 >
+                                    Hong Kong
+                                 </a>
+                                 <a
+                                    href=""
+                                    className="destionation__item-area-content-heading-item"
+                                 >
+                                    Phuket
+                                 </a>
+                              </div>
+                              <a
+                                 href=""
+                                 className="btn destionation__item-area-content-in-btn"
+                              >
+                                 VIEW DESTINATION
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div className="destionation__item">
+                        <div className="destionation__item-area-content destionation__item--Italy">
+                           <div className="destionation__item-area-content-wrap"></div>
+                           <div className="destionation__item-area-content-around">
+                              <h3 className="destionation__item-area-name">
+                                 Italy
+                              </h3>
+                              <h3 className="destionation__item-area-amount-packages">
+                                 1 PACKAGES
+                              </h3>
+                           </div>
+                           <div className="destionation__item-area-content-in">
+                              <h3 className="destionation__item-area-content-heading">
+                                 Packages
+                              </h3>
+                              <div className="destionation__item-area-content-heading-list-heading">
+                                 <a
+                                    href=""
+                                    className="destionation__item-area-content-heading-item"
+                                 >
+                                    Tuscany
+                                 </a>
+                              </div>
+                              <a
+                                 href=""
+                                 className="btn destionation__item-area-content-in-btn"
+                              >
+                                 VIEW DESTINATION
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div className="destionation__item">
+                        <div className="destionation__item-area-content destionation__item--Netherlands">
+                           <div className="destionation__item-area-content-wrap"></div>
+                           <div className="destionation__item-area-content-around">
+                              <h3 className="destionation__item-area-name">
+                                 Netherlands
+                              </h3>
+                              <h3 className="destionation__item-area-amount-packages">
+                                 1 PACKAGES
+                              </h3>
+                           </div>
+                           <div className="destionation__item-area-content-in">
+                              <h3 className="destionation__item-area-content-heading">
+                                 Packages
+                              </h3>
+                              <div className="destionation__item-area-content-heading-list-heading">
+                                 <a
+                                    href=""
+                                    className="destionation__item-area-content-heading-item"
+                                 >
+                                    Amsterdam
+                                 </a>
+                              </div>
+                              <a
+                                 href=""
+                                 className="btn destionation__item-area-content-in-btn"
+                              >
+                                 VIEW DESTINATION
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div className="destionation__item">
+                        <div className="destionation__item-area-content destionation__item--United-States">
+                           <div className="destionation__item-area-content-wrap"></div>
+                           <div className="destionation__item-area-content-around">
+                              <h3 className="destionation__item-area-name">
+                                 United States
+                              </h3>
+                              <h3 className="destionation__item-area-amount-packages">
+                                 1 PACKAGES
+                              </h3>
+                           </div>
+                           <div className="destionation__item-area-content-in">
+                              <h3 className="destionation__item-area-content-heading">
+                                 Packages
+                              </h3>
+                              <div className="destionation__item-area-content-heading-list-heading">
+                                 <a
+                                    href=""
+                                    className="destionation__item-area-content-heading-item"
+                                 >
+                                    San Francisco
+                                 </a>
+                              </div>
+                              <a
+                                 href=""
+                                 className="btn destionation__item-area-content-in-btn"
+                              >
+                                 VIEW DESTINATION
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div className="mt-40">
+               <div className="holiday-wrap">
+                  <div className="grid grid-cols-3">
+                     <div className="l-2"></div>
+                     <div className="l-4 ">
+                        <h3 className="heading-holiday">Your</h3>
+                        <h3 className="heading-holiday-bottom">Next</h3>
+                        <h3 className="heading-holiday-bottom-main">Holiday</h3>
+                     </div>
+                     <div className="l-4 btn-wrap-holiday">
+                        <a href="" className="btn btn-holiday">
+                           VIEW ALL PACKAGES
+                        </a>
+                     </div>
+                     <div className="l-2"></div>
+                  </div>
+               </div>
+            </div>
+            <div className="px-20">
+               <div className="grid grid-cols-2">
+                  <div className="l-4 review-wrap">
+                     <h2 className="sub-heading-review">NORTH AMERICA</h2>
+                     <div className="heading-review-body">
+                        <h1 className="heading-review">The Best</h1>
+                        <h1 className="heading-review-main">Beaches</h1>
+                     </div>
+
+                     <p className="review-content">
+                        Lorem ipsum dolor sit amet, consectetur adip iscing
+                        elit. Proin rhoncus urna dictum neque molestie ultricies
+                        mauris ac.
+                     </p>
+                     <p className="review-content">
+                        Lorem ipsum dolor sit amet, consectetur adip iscing
+                        elit. Proin rhoncus urna dictum neque molestie ultricies
+                        mauris ac.
+                     </p>
+                     <div className="review-price">
+                        <span className="price--disable">800</span>
+                        <span className="price--current">500 $</span>
+                        <span className="review-for-person">/ FOR PERSON</span>
+                     </div>
+                     <a href="" className="btn btn-book-now">
+                        BOOK NOW
+                     </a>
+                  </div>
+                  <div className="l-8 review-img-content">
+                     <img
+                        src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/parallax-4-1.jpg"
+                        alt=""
+                        className="review-img"
+                     />
+                     <div className="options-countdown">
+                        <div className="countdown-item">
+                           <h1 className="countdown-item-hour">000</h1>
+                           <h3 className="countdown-item-select">DAYS</h3>
+                        </div>
+                        <div className="countdown-item">
+                           <h1 className="countdown-item-hour">00</h1>
+                           <h3 className="countdown-item-select">HOURS</h3>
+                        </div>
+                        <div className="countdown-item">
+                           <h1 className="countdown-item-hour">00</h1>
+                           <h3 className="countdown-item-select">MINUTES</h3>
+                        </div>
+                        <div className="countdown-item">
+                           <h1 className="countdown-item-hour">00</h1>
+                           <h3 className="countdown-item-select">SECONDS</h3>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div className="flex tour-wrap">
+                  <div className="tour-item">
+                     <img
+                        src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/04/icon-around.png"
+                        alt=""
+                        className="tour-img"
+                     />
+                     <div className="tour-content">
+                        <h1 className="tour-heading">World Tour</h1>
+                        <p className="tour-text">
+                           Lorem ipsum dolor sit amet conse ctetur adip iscing
+                           elit Proin rhonc us urna dictum.
+                        </p>
+                        <a href="" className="btn tour-btn">
+                           View More
+                        </a>
+                     </div>
+                  </div>
+                  <div className="tour-item">
+                     <img
+                        src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/04/icon-boat.png"
+                        alt=""
+                        className="tour-img"
+                     />
+                     <div className="tour-content">
+                        <h1 className="tour-heading">Cruises</h1>
+                        <p className="tour-text">
+                           Lorem ipsum dolor sit amet conse ctetur adip iscing
+                           elit Proin rhonc us urna dictum.
+                        </p>
+                        <a href="" className="btn tour-btn">
+                           View More
+                        </a>
+                     </div>
+                  </div>
+                  <div className="tour-item">
+                     <img
+                        src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/04/icon-landmark.png"
+                        alt=""
+                        className="tour-img"
+                     />
+                     <div className="tour-content">
+                        <h1 className="tour-heading">Best Tours</h1>
+                        <p className="tour-text">
+                           Lorem ipsum dolor sit amet conse ctetur adip iscing
+                           elit Proin rhonc us urna dictum.
+                        </p>
+                        <a href="" className="btn tour-btn">
+                           View More
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div className="grid grid-cols-2">
+               <div className="l-6 discover-wrap">
+                  <div className="discover-content-cities">
+                     <h3 className="discover-sub-heading">01. LAST MINUTE</h3>
+                     <h1 className="discover-heading">Discover Cities</h1>
+                     <a
+                        href=""
+                        className="btn btn-discover btn-color-text--pink"
+                     >
+                        DETAILS
+                     </a>
+                  </div>
+               </div>
+               <div className="l-6 discover-wrap">
+                  <div className="discover-content-nature">
+                     <h3 className="discover-sub-heading">02. PROMOTIONS</h3>
+                     <h1 className="discover-heading">Discover Nature</h1>
+                     <a
+                        href=""
+                        className="btn btn-discover btn-color-text-green"
+                     >
+                        DETAILS
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <div className="mb-20">
+               <div className=" package__review">
+                  <h3 className=" sub-heading__destionation">PROMOTIONS</h3>
+                  <div className=" heading__destionation">
+                     <h1 className="heading__destionation-main">OUR</h1>
+                     <h1 className="heading__destionation-sub">PACKAGES</h1>
+                  </div>
+                  <div className="grid px-48 grid-cols-3 gap-20 package__review-list ">
+                     <div className="l-4 package__review-item-wrap">
+                        <div className="package__review-item">
+                           <div className="review-item-img-box ">
+                              <img
+                                 src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/package-1-1024x640.jpg"
+                                 alt=""
+                                 className="review-item-img"
+                              />
+                              <a
+                                 href=""
+                                 className="review-item-img-icon primary--yellow"
+                              >
+                                 <img
+                                    src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/arch.png"
+                                    alt=""
+                                    className="review-item-icon "
+                                 />
+                              </a>
+                           </div>
+                           <div className="package__review-item-body">
+                              <h3 className="review-item-heading">Berlin</h3>
+                              <h5 className="review-item-sub-heading">
+                                 <i className="fas fa-map-marker-alt review-item-heading-icon"></i>
+                                 Europe
+                              </h5>
+                              <div className="package__review-item-section">
+                                 <div className="package__review-item-section-left">
+                                    <span className="review-section-unique">
+                                       Cultural
+                                    </span>
+                                    <span className="review-section-feeling">
+                                       RELAX
+                                       <span className="review-section-feeling-btn btn btn--yellow">
+                                          + 1
+                                       </span>
+                                    </span>
+                                 </div>
+                                 <div className="package__review-item-section-right">
+                                    <span className="review-section-price">
+                                       700 $
+                                    </span>
+                                 </div>
+                              </div>
+                              <p className="review-item-text">
+                                 Lorem ipsum dolor sit amet, consectetur
+                                 adipiscing elit. Nunc ut efficitur ante. Donec
+                                 dapibus dictum scelerisque.
+                              </p>
+                              <a
+                                 href=""
+                                 className="btn btn--yellow  btn-review"
+                              >
+                                 DETAILS
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div className="l-4 package__review-item-wrap">
+                        <div className="package__review-item">
+                           <div className="review-item-img-box">
+                              <img
+                                 src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/03/package-6-1024x640.jpg"
+                                 alt=""
+                                 className="review-item-img"
+                              />
+                              <a
+                                 href=""
+                                 className="review-item-img-icon primary--red"
+                              >
+                                 <img
+                                    src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/torii-gate.png"
+                                    alt=""
+                                    className="review-item-icon"
+                                 />
+                              </a>
+                              <a
+                                 href=""
+                                 className="btn btn-sales-package-review"
+                              >
+                                 SALE
+                              </a>
+                           </div>
+                           <div className="package__review-item-body">
+                              <h3 className="review-item-heading">Hong Kong</h3>
+                              <h5 className="review-item-sub-heading">
+                                 <i className="fas fa-map-marker-alt review-item-heading-icon"></i>
+                                 Asia
+                              </h5>
+                              <div className="package__review-item-section">
+                                 <div className="package__review-item-section-left">
+                                    <span className="review-section-unique">
+                                       History
+                                    </span>
+                                    <span className="review-section-feeling">
+                                       Cultural
+                                       <span className="review-section-feeling-btn btn btn--red">
+                                          + 1
+                                       </span>
+                                    </span>
+                                 </div>
+                                 <div className="package__review-item-section-right">
+                                    <span className="review-section-price">
+                                       500 $
+                                    </span>
+                                 </div>
+                              </div>
+                              <p className="review-item-text">
+                                 Lorem ipsum dolor sit amet, consectetur
+                                 adipiscing elit. Nunc ut efficitur ante. Donec
+                                 dapibus dictum scelerisque.
+                              </p>
+                              <a href="" className="btn btn--red btn-review">
+                                 DETAILS
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div className="l-4 package__review-item-wrap">
+                        <div className="package__review-item">
+                           <div className="review-item-img-box">
+                              <img
+                                 src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/package-2-1024x640.jpg"
+                                 alt=""
+                                 className="review-item-img"
+                              />
+                              <a
+                                 href=""
+                                 className="review-item-img-icon primary--purple"
+                              >
+                                 <img
+                                    src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/golden-gate.png"
+                                    alt=""
+                                    className="review-item-icon "
+                                 />
+                              </a>
+                           </div>
+                           <div className="package__review-item-body">
+                              <h3 className="review-item-heading">
+                                 San Francisco
+                              </h3>
+                              <h5 className="review-item-sub-heading">
+                                 <i className="fas fa-map-marker-alt review-item-heading-icon"></i>
+                                 United States
+                              </h5>
+                              <div className="package__review-item-section">
+                                 <div className="package__review-item-section-left">
+                                    <span className="review-section-unique">
+                                       Sport
+                                    </span>
+                                    <span className="review-section-feeling">
+                                       RELAX
+                                       <span className="review-section-feeling-btn btn btn--purple">
+                                          + 1
+                                       </span>
+                                    </span>
+                                 </div>
+                                 <div className="package__review-item-section-right">
+                                    <span className="review-section-price">
+                                       400 $
+                                    </span>
+                                 </div>
+                              </div>
+                              <p className="review-item-text">
+                                 Lorem ipsum dolor sit amet, consectetur
+                                 adipiscing elit. Nunc ut efficitur ante. Donec
+                                 dapibus dictum scelerisque.
+                              </p>
+                              <a href="" className="btn btn--purple btn-review">
+                                 DETAILS
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
-         <h1 className="text-white pt-8 pl-4 text-5xl">Gallery</h1>
-         <Gallery />
-         <div className="pb-16 pt-8 flex flex-col gap-4 items-center justify-center">
-            <h2 className="text-gray-400 text-lg">
-               To acquire knowledge about the past
-            </h2>
-            <h1 className="text-white text-5xl">
-               See what happend in the old era
-            </h1>
-         </div>
-         <SliderCarousel direction="alternate-reverse">
-            <CarouselSliderItem>
-               <img
-                  src="https://re1999.bluepoch.com/en/home/img/backstory/p2.png"
-                  className="h-full w-[200px] flex-none object-cover"
-                  alt="wander-testimonial"
-                  width="180"
-                  height="180"
-                  loading="lazy"
-               />
-               <div className="flex h-full flex-col justify-start px-4">
-                  <h1 className="text-white text-2xl font-bold">
-                     1929: The Jazz Age
-                  </h1>
-                  <p className="line-clamp-5 text-sm">
-                     For the 20s, everyone agree that symbolic city was New
-                     York. At that time in the Big Apple, Ford Motor and radio
-                     broadcast spread the positive attitude to an even larger
-                     range. Jazz music playing all night. No one could say no to
-                     this carnival.
-                  </p>
-                  <div className="mt-auto flex items-center gap-2">
-                     <img
-                        src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/326531349_947755589483002_6935008565326110642_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=RtFt57F7q38AX_U6xnR&_nc_ht=scontent.fsgn8-4.fna&cb_e2o_trans=t&oh=00_AfCXWCdSDIBFWhy0JnArz6dBmr5pGdCyWx_OLPCIfSRImw&oe=6549DDB1"
-                        className="bg-white/20 grid place-items-center h-7 w-7 flex-none rounded-full object-cover"
-                        alt="Testimonial image"
-                        width="28"
-                        height="28"
-                        loading="lazy"
-                     />
-                     <span className="text-xs">Mist from New York, 1929</span>
-                  </div>
-               </div>
-            </CarouselSliderItem>
-            <CarouselSliderItem>
-               <img
-                  src="https://re1999.bluepoch.com/en/home/img/backstory/p3.png"
-                  className="h-full w-[200px] flex-none object-cover"
-                  alt="wander-testimonial"
-                  width="180"
-                  height="180"
-                  loading="lazy"
-               />
-               <div className="flex h-full flex-col justify-start px-4">
-                  <h1 className="text-white text-2xl font-bold">
-                     1966: The Swinging London
-                  </h1>
-                  <p className="line-clamp-5 text-sm">
-                     Everything was nice in the 60s. Pop art and the hippie
-                     movement became popular among the young people, making
-                     London the Capital of Cool. More importantly, tho era
-                     witnessed the rise of the Pirate Radio and rock music.
-                  </p>
-                  <div className="mt-auto flex items-center gap-2">
-                     <img
-                        src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/326531349_947755589483002_6935008565326110642_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=RtFt57F7q38AX_U6xnR&_nc_ht=scontent.fsgn8-4.fna&cb_e2o_trans=t&oh=00_AfCXWCdSDIBFWhy0JnArz6dBmr5pGdCyWx_OLPCIfSRImw&oe=6549DDB1"
-                        className="bg-white/20 grid place-items-center h-7 w-7 flex-none rounded-full object-cover"
-                        alt="Testimonial image"
-                        width="28"
-                        height="28"
-                        loading="lazy"
-                     />
-                     <span className="text-xs">Mist from London, 1966</span>
-                  </div>
-               </div>
-            </CarouselSliderItem>
-            <CarouselSliderItem>
-               <img
-                  src="https://streetfins.com/wp-content/uploads/2021/01/illuminate-shefrin-7.jpg"
-                  className="h-full w-[200px] flex-none object-cover"
-                  alt="wander-testimonial"
-                  width="180"
-                  height="180"
-                  loading="lazy"
-               />
-               <div className="flex h-full flex-col justify-start px-4">
-                  <h1 className="text-white text-2xl font-bold">
-                     2008: Financial Crisis
-                  </h1>
-                  <p className="line-clamp-5 text-sm">
-                     It was a catastrophic event that had profound implications
-                     for the global economy. This crisis was triggered by a
-                     combination of factors, including a housing market bubble,
-                     risky lending practices, and the widespread securitization
-                     of subprime mortgages.
-                  </p>
-                  <div className="mt-auto flex items-center gap-2">
-                     <img
-                        src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/326531349_947755589483002_6935008565326110642_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=RtFt57F7q38AX_U6xnR&_nc_ht=scontent.fsgn8-4.fna&cb_e2o_trans=t&oh=00_AfCXWCdSDIBFWhy0JnArz6dBmr5pGdCyWx_OLPCIfSRImw&oe=6549DDB1"
-                        className="bg-white/20 grid place-items-center h-7 w-7 flex-none rounded-full object-cover"
-                        alt="Testimonial image"
-                        width="28"
-                        height="28"
-                        loading="lazy"
-                     />
-                     <span className="text-xs">Mist from US, 2008</span>
-                  </div>
-               </div>
-            </CarouselSliderItem>
-         </SliderCarousel>
-         <SliderCarousel direction="alternate">
-            <CarouselSliderItem>
-               <img
-                  src="https://re1999.bluepoch.com/en/home/img/backstory/p2.png"
-                  className="h-full w-[200px] flex-none object-cover"
-                  alt="wander-testimonial"
-                  width="180"
-                  height="180"
-                  loading="lazy"
-               />
-               <div className="flex h-full flex-col justify-start px-4">
-                  <h1 className="text-white text-2xl font-bold">
-                     1929: The Jazz Age
-                  </h1>
-                  <p className="line-clamp-5 text-sm">
-                     For the 20s, everyone agree that symbolic city was New
-                     York. At that time in the Big Apple, Ford Motor and radio
-                     broadcast spread the positive attitude to an even larger
-                     range. Jazz music playing all night. No one could say no to
-                     this carnival.
-                  </p>
-                  <div className="mt-auto flex items-center gap-2">
-                     <img
-                        src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/326531349_947755589483002_6935008565326110642_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=RtFt57F7q38AX_U6xnR&_nc_ht=scontent.fsgn8-4.fna&cb_e2o_trans=t&oh=00_AfCXWCdSDIBFWhy0JnArz6dBmr5pGdCyWx_OLPCIfSRImw&oe=6549DDB1"
-                        className="bg-white/20 grid place-items-center h-7 w-7 flex-none rounded-full object-cover"
-                        alt="Testimonial image"
-                        width="28"
-                        height="28"
-                        loading="lazy"
-                     />
-                     <span className="text-xs">Mist from New York, 1929</span>
-                  </div>
-               </div>
-            </CarouselSliderItem>
-            <CarouselSliderItem>
-               <img
-                  src="https://re1999.bluepoch.com/en/home/img/backstory/p3.png"
-                  className="h-full w-[200px] flex-none object-cover"
-                  alt="wander-testimonial"
-                  width="180"
-                  height="180"
-                  loading="lazy"
-               />
-               <div className="flex h-full flex-col justify-start px-4">
-                  <h1 className="text-white text-2xl font-bold">
-                     1966: The Swinging London
-                  </h1>
-                  <p className="line-clamp-5 text-sm">
-                     Everything was nice in the 60s. Pop art and the hippie
-                     movement became popular among the young people, making
-                     London the Capital of Cool. More importantly, tho era
-                     witnessed the rise of the Pirate Radio and rock music.
-                  </p>
-                  <div className="mt-auto flex items-center gap-2">
-                     <img
-                        src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/326531349_947755589483002_6935008565326110642_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=RtFt57F7q38AX_U6xnR&_nc_ht=scontent.fsgn8-4.fna&cb_e2o_trans=t&oh=00_AfCXWCdSDIBFWhy0JnArz6dBmr5pGdCyWx_OLPCIfSRImw&oe=6549DDB1"
-                        className="bg-white/20 grid place-items-center h-7 w-7 flex-none rounded-full object-cover"
-                        alt="Testimonial image"
-                        width="28"
-                        height="28"
-                        loading="lazy"
-                     />
-                     <span className="text-xs">Mist from London, 1966</span>
-                  </div>
-               </div>
-            </CarouselSliderItem>
-            <CarouselSliderItem>
-               <img
-                  src="https://streetfins.com/wp-content/uploads/2021/01/illuminate-shefrin-7.jpg"
-                  className="h-full w-[200px] flex-none object-cover"
-                  alt="wander-testimonial"
-                  width="180"
-                  height="180"
-                  loading="lazy"
-               />
-               <div className="flex h-full flex-col justify-start px-4">
-                  <h1 className="text-white text-2xl font-bold">
-                     2008: Financial Crisis
-                  </h1>
-                  <p className="line-clamp-5 text-sm">
-                     It was a catastrophic event that had profound implications
-                     for the global economy. This crisis was triggered by a
-                     combination of factors, including a housing market bubble,
-                     risky lending practices, and the widespread securitization
-                     of subprime mortgages.
-                  </p>
-                  <div className="mt-auto flex items-center gap-2">
-                     <img
-                        src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/326531349_947755589483002_6935008565326110642_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=RtFt57F7q38AX_U6xnR&_nc_ht=scontent.fsgn8-4.fna&cb_e2o_trans=t&oh=00_AfCXWCdSDIBFWhy0JnArz6dBmr5pGdCyWx_OLPCIfSRImw&oe=6549DDB1"
-                        className="bg-white/20 grid place-items-center h-7 w-7 flex-none rounded-full object-cover"
-                        alt="Testimonial image"
-                        width="28"
-                        height="28"
-                        loading="lazy"
-                     />
-                     <span className="text-xs">Mist from US, 2008</span>
-                  </div>
-               </div>
-            </CarouselSliderItem>
-         </SliderCarousel>
+         <Footer />
       </div>
    );
 }
