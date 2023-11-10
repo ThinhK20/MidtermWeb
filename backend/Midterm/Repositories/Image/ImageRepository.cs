@@ -64,5 +64,26 @@ namespace Midterm.Repositories
         {
             return await _dbContext.Images.ToListAsync();
         }
+
+        public async Task<bool> DeleteImageAsync(Guid imageId)
+        {
+            try
+            {
+                var image = await _dbContext.Images.FirstOrDefaultAsync(value => value.Id == imageId);
+                if (image is null)
+                {
+                    return false;
+                }
+                List<string> deletePublicIds = new List<string>();
+                deletePublicIds.Add(image.PublicId);
+                await _cloudinary.DeleteResourcesAsync(deletePublicIds.ToArray());
+                _dbContext.Remove(image);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

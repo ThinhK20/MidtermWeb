@@ -17,9 +17,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Add scope repositories
 builder.Services.AddScoped<IImageRepository, ImageRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Add scope for services
 builder.Services.AddScoped<IImageService, ImageService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 
