@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:wght@300;400;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,13 +28,7 @@
     scrollbar-width: none; /* Firefox */
 }
 
-
 @layer base {
-    body {
-        @apply font-[Poppins]
-    }
-
-
     h1 {
         @apply text-3xl md:text-4xl font-bold
     }
@@ -53,8 +46,7 @@
     }
 }
 
-@layer utilities {
-
+@layer utilities  {
     /* FONTS */
     .regular-64 {
         @apply text-[64px] font-[400] leading-[120%];

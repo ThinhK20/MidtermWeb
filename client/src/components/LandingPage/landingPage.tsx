@@ -1,19 +1,16 @@
 import Navbar from "./Header/Navbar";
-import Hero from "./NewUI/Hero";
-import Features from "./NewUI/Features";
-
-// import '/src/shared/css/LandingPage.css'
-
-import Features2 from "./NewUI/Features2";
-import Features1 from "./NewUI/Features1";
-import About from "./NewUI/About";
-import Package from "./NewUI/Package";
-import Testimonial from "./NewUI/Testimonial";
+import Hero from "./Section/Hero";
+import Features from "./Section/Features";
+import Features2 from "./Section/Features2";
+import Features1 from "./Section/Features1";
+import About from "./Section/About";
+import Package from "./Section/Package";
+import Testimonial from "./Section/Testimonial";
 import Footer from "./Footer/footer";
 
 function LandingPage() {
   return (
-    <div>
+    <div className="relative overflow-hidden">
       <Navbar />
       <Hero />
       <Features />
