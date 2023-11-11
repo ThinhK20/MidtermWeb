@@ -9,19 +9,19 @@ import Testimonial from "./Section/Testimonial";
 import Footer from "./Footer/footer";
 
 function LandingPage() {
-  return (
-    <div className="relative overflow-hidden">
-      <Navbar />
-      <Hero />
-      <Features />
-      <Features1 />
-      <Features2 />
-      <About />
-      <Package />
-      <Testimonial />
-      <Footer />
-    </div>
-  )
+   return (
+      <div className="relative overflow-hidden">
+         <Navbar />
+         <Hero />
+         <Features />
+         <Features1 />
+         <Features2 />
+         <About />
+         <Package />
+         <Testimonial />
+         <Footer />
+      </div>
+   );
 }
 
 export default LandingPage;

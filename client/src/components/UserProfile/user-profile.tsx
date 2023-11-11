@@ -1,8 +1,17 @@
+import { PAKAGES } from "../../shared/constants";
 import Header from "../LandingPage/Header/header";
+import { PakageItem } from "../LandingPage/Section/Package";
+import BackgroundImage from "../../assets/maldives.jpg";
 
 export default function UserProfile() {
    return (
-      <div>
+      <div className="relative bg-slate-100">
+         {/* <div>
+            <img
+               src={BackgroundImage}
+               className="absolute object-cover w-full h-full top-0 left-0 right-0 bottom-0 -z-10"
+            />
+         </div> */}
          <Header />
          <div className="grid grid-cols-6 pt-36">
             <div className="col-span-1 gap-4 flex flex-col items-center">
@@ -11,8 +20,10 @@ export default function UserProfile() {
                   src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/326531349_947755589483002_6935008565326110642_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ATTCB0rsW4oAX88HGJb&_nc_ht=scontent.fsgn8-4.fna&cb_e2o_trans=t&oh=00_AfAA2VM2AUz-j3jzWx7kwkVmlIfT3QyU5RjBR6CQbzqgIg&oe=6553C0F1"
                />
                <div className="flex flex-col gap-1 pl-16 w-full">
-                  <h1 className="text-3xl font-normal">Jena Ventin</h1>
-                  <h3 className="text-xl font-light">Gold Member</h3>
+                  <h1 className="text-3xl font-bold text-blue-600">
+                     Jena Ventin
+                  </h1>
+                  <h3 className="text-xl font-bold ">Gold Member</h3>
                </div>
                <div className="flex flex-col gap-8 w-full">
                   <div className="flex flex-col gap-1 pl-16 w-full my-4">
@@ -39,38 +50,59 @@ export default function UserProfile() {
             </div>
             <div className="col-span-5 px-16 flex flex-col gap-16">
                <img
-                  src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t1.6435-9/198093531_878963729640337_9180045278255563666_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=2be8e3&_nc_ohc=__Prnco9NG0AX9MOFGl&_nc_ht=scontent.fsgn8-4.fna&cb_e2o_trans=t&oh=00_AfCOLToLEDMXFd6qCZ3MBsfK7zLebRnlkrrj57LdASP99Q&oe=6575CF75"
+                  src={BackgroundImage}
                   className="object-cover h-96 rounded-3xl w-[100%]"
                />
 
                <div className="grid grid-cols-6">
                   <div className="col-span-4">
-                     <div className="bg-slate-300 mr-8 rounded-3xl p-8">
-                        <h1 className="text-xl font-bold mb-8">
-                           Recently visited country
+                     <div className="bg-slate-200 mr-8 rounded-3xl p-8">
+                        <h1 className="text-2xl font-bold mb-8">
+                           Recently visited countries
                         </h1>
                         <div className="flex items-center gap-4">
                            <div>
                               <img
-                                 className="rounded-full w-32 h-32 object-cover"
+                                 className="rounded-full w-24 h-24 object-cover"
                                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2000px-Flag_of_Vietnam.svg.png"
+                              />
+                           </div>
+                           <div>
+                              <img
+                                 className="rounded-full w-24 h-24 object-cover"
+                                 src="https://cdn.britannica.com/49/1949-050-39ED83BA/Flag-South-Korea.jpg"
                               />
                            </div>
                         </div>
                      </div>
+
+                     <h1 className="text-3xl pt-16">Recently tour booked</h1>
+
+                     <div className=" py-8 flex gap-8 flex-wrap">
+                        {PAKAGES.map((card) => {
+                           return (
+                              <PakageItem
+                                 title={card.title}
+                                 url={card.url}
+                                 price={card.price}
+                                 des={card.des}
+                                 duration={card.duration}
+                              />
+                           );
+                        })}
+                        sh1
+                     </div>
                   </div>
                   <div className="col-span-2">
-                     Lorem Ipsum is simply dummy text of the printing and
-                     typesetting industry. Lorem Ipsum has been the industry's
-                     standard dummy text ever since the 1500s, when an unknown
-                     printer took a galley of type and scrambled it to make a
-                     type specimen book. It has survived not only five
-                     centuries, but also the leap into electronic typesetting,
-                     remaining essentially unchanged. It was popularised in the
-                     1960s with the release of Letraset sheets containing Lorem
-                     Ipsum passages, and more recently with desktop publishing
-                     software like Aldus PageMaker including versions of Lorem
-                     Ipsum.
+                     <h1>Introduction</h1>
+                     <p className="font-normal pt-4 text-2xl">
+                        Hey there! I'm someone who absolutely loves to travel.
+                        Exploring new places, meeting different people, and
+                        experiencing diverse cultures bring me so much joy. My
+                        dream? To visit every country on this beautiful planet
+                        during my lifetime. Let's go on this adventure together!
+                        🌍✈️.
+                     </p>
                   </div>
                </div>
             </div>
