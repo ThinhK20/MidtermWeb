@@ -28,5 +28,19 @@ namespace Midterm.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<bool>> SignIn([FromBody] User loginUser)
+        {
+            try
+            {
+                await _userService.SignIn(loginUser);
+                return Ok("Sign in successfully.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

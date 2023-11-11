@@ -17,5 +17,11 @@ namespace Midterm.Services
             // Insert more logic here.
             return await _userRepository.SignUp(registerUser);
         }
+
+        public async Task<bool> SignIn(User loginUser)
+        {
+            return await _userRepository.SignIn(loginUser);
+        }
+
     }
 }
