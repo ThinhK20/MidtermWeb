@@ -1,7 +1,7 @@
 @import "normalize.css";
 @import "assets/css/base.scss";
 @import "assets/css/main.scss";
-@import "shared/css/landingpage.css";
+@import "./shared/css/landingpage.css";
 @import "@fontsource/roboto/300.css";
 @import "@fontsource/roboto/400.css";
 @import "@fontsource/roboto/500.css";
@@ -12,71 +12,71 @@
 @tailwind utilities;
 
 body {
-   -ms-overflow-style: none; /* IE and Edge */
-   scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
-   &::-webkit-scrollbar {
-      display: none;
-   }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-   :root {
-      --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 0, 0, 0;
-      --primary-bg: #2e335a;
-      --primary-color: #2e335a;
-   }
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    --primary-bg: #2e335a;
+    --primary-color: #2e335a;
+  }
 }
 
 @layer components {
-   .layout {
-      @apply min-w-full min-h-full overflow-auto;
-   }
+  .layout {
+    @apply min-w-full min-h-full overflow-auto;
+  }
 
-   .layout-primary {
-      @apply layout bg-gray-50 dark:bg-gray-800;
-   }
+  .layout-primary {
+    @apply layout bg-gray-50 dark:bg-gray-800;
+  }
 
-   .bg-primary {
-      @apply dark:bg-[--primary-bg] bg-gray-300 hover:opacity-80;
-   }
+  .bg-primary {
+    @apply dark:bg-[--primary-bg] bg-gray-300 hover:opacity-80;
+  }
 
-   .text-primary {
-      @apply dark:text-[--primary-color] text-black hover:opacity-80;
-   }
+  .text-primary {
+    @apply dark:text-[--primary-color] text-black hover:opacity-80;
+  }
 
-   .layout-theme {
-      @apply layout bg-theme text-theme;
-   }
+  .layout-theme {
+    @apply layout bg-theme text-theme;
+  }
 
-   .text-theme {
-      @apply text-black dark:text-gray-400;
-   }
+  .text-theme {
+    @apply text-black dark:text-gray-400;
+  }
 
-   .text-theme--hover {
-      @apply hover:text-gray-600 hover:dark:text-gray-200;
-   }
+  .text-theme--hover {
+    @apply hover:text-gray-600 hover:dark:text-gray-200;
+  }
 
-   .bg-theme {
-      @apply bg-slate-200  dark:bg-black;
-   }
+  .bg-theme {
+    @apply bg-slate-200  dark:bg-black;
+  }
 
-   .bg-theme--hover {
-      @apply hover:bg-gray-200 hover:dark:bg-gray-700;
-   }
+  .bg-theme--hover {
+    @apply hover:bg-gray-200 hover:dark:bg-gray-700;
+  }
 
-   .animate-marquee {
-      animation: marquee 55s linear infinite;
-   }
+  .animate-marquee {
+    animation: marquee 55s linear infinite;
+  }
 
-   @keyframes marquee {
-      from {
-         transform: translateX(0);
-      }
-      to {
-         transform: translateX(-50%);
-      }
-   }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
