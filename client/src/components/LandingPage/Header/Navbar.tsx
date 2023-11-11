@@ -12,6 +12,7 @@ import { useState } from 'react'
 import { NAV_LINK } from '../../../shared/constants'
 
 
+
 function Navbar() {
 
   const [nav, setNav] = useState(false);
@@ -60,6 +61,7 @@ function Navbar() {
            onClick={handleNav}>
         <ul>
           <h1 className='text-3xl md:text-4xl font-bold'>TRAVEL</h1>
+
           <li className='p-4 border-b'> Home </li>
           <li className='p-4 border-b'> Destination </li>
           <li className='p-4 border-b'> Travel </li>
@@ -70,6 +72,7 @@ function Navbar() {
             <button className='btn-bg-gradient'>login</button>
           </div>
           <div className='flex justify-between my-6 px-2'>
+
             <FontAwesomeIcon icon={faFacebook} className='icon'/>
             <FontAwesomeIcon icon={faYoutube} className='icon'/>
             <FontAwesomeIcon icon={faInstagram} className='icon'/>

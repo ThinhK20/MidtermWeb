@@ -1,7 +1,7 @@
-
 import Navbar from './Header/Navbar'
 import Hero from './NewUI/Hero'
 import Features from './NewUI/Features'
+
 
 import '/src/shared/css/LandingPage.css'
 

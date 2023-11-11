@@ -13,6 +13,11 @@ namespace Midterm.Services
             _imageRepository = imageRepository;
         }
 
+        public async Task<bool> DeleteImageAsync(Guid imageId)
+        {
+            return await _imageRepository.DeleteImageAsync(imageId);
+        }
+
         public async Task<List<Image>> GetAllImagesAsync()
         {
             return await _imageRepository.GetAllImagesAsync();

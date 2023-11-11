@@ -1,4 +1,3 @@
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CATEGORIES, VIDEO } from '../../../shared/constants';
 import { faAngleLeft, faAngleRight, faLocationArrow } from '@fortawesome/free-solid-svg-icons';

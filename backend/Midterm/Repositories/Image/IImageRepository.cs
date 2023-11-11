@@ -8,6 +8,7 @@ namespace Midterm.Repositories
     {
         public Task<Image> UploadImageAsync(ImageUploadedDTO uploadedImage);
         public Task<List<Image>> GetAllImagesAsync();
+        public Task<bool> DeleteImageAsync(Guid imageId);
         public ApplicationDbContext UnitOfWork { get; }
 
     }
