@@ -1,18 +1,17 @@
-// import Header from "./Header/header"
-// import PageIllustration from "./Ui/page-illustration"
-// import Hero from "./Ui/hero"
-// import Features from "./Ui/features"
-// import Zigzag from "./Ui/zigzag"
-// import Testimonials from "./Ui/testimonials"
-// import Team from "./Ui/team"
-// import ContactUs from "./Ui/contact-us"
-// import Footer from "./Footer/footer"
-
 import Navbar from './Header/Navbar'
 import Hero from './NewUI/Hero'
 import Features from './NewUI/Features'
-import Footer from './Footer/footer'
+
+
 import '/src/shared/css/LandingPage.css'
+
+import Features2 from './NewUI/Features2'
+import Features1 from './NewUI/Features1'
+import About from './NewUI/About'
+import Package from './NewUI/Package'
+import Testimonial from './NewUI/Testimonial'
+import Footer from './Footer/footer'
+
 
 function LandingPage() {
   return (
@@ -37,6 +36,11 @@ function LandingPage() {
       <Navbar />
       <Hero />
       <Features />
+      <Features1 />
+      <Features2 />
+      <About />
+      <Package />
+      <Testimonial />
       <Footer />
     </div>
   )

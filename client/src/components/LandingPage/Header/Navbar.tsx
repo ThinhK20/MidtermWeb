@@ -4,11 +4,13 @@ import { faPinterest } from '@fortawesome/free-brands-svg-icons/faPinterest'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons/faYoutube'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
-import { faGripLines } from '@fortawesome/free-solid-svg-icons'
+import { faGripLines} from '@fortawesome/free-solid-svg-icons'
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { useState } from 'react'
+import { NAV_LINK } from '../../../shared/constants'
+
 
 
 function Navbar() {
@@ -30,16 +32,19 @@ function Navbar() {
 
       {/* Middle navigation */}
       <ul className='hidden md:flex'>
-        <li> Home </li>
-        <li> Destination </li>
-        <li> Travel </li>
-        <li> View </li>
-        <li> Book </li>
+        {NAV_LINK.map((link) => {
+          return(
+            <li key={link.key} className='cursor-pointer flex gap-2 mx-8 relative group'>
+              {link.label}
+              <span className='inline-block absolute h-[2px] w-0 bg-white -bottom-1 transition-all duration-500 group-hover:w-full'></span>
+            </li>
+        )})}
       </ul>
 
       {/* End */}
-      <div className='hidden md:flex'>
-        <button className='rounded-full border-0'>
+      <div className='hidden md:flex justify-center items-center gap-2'>
+        <a className='px-1 font-bold hover:text-gray-400/70 cursor-pointer' href='/'> Sign up </a>
+        <button className='button-login'>
           <FontAwesomeIcon icon={faUser} />
           <a className='px-1 font-bold'> login </a>
         </button>
@@ -56,16 +61,18 @@ function Navbar() {
            onClick={handleNav}>
         <ul>
           <h1 className='text-3xl md:text-4xl font-bold'>TRAVEL</h1>
-          <li className='border-b'> Home </li>
-          <li className='border-b'> Destination </li>
-          <li className='border-b'> Travel </li>
-          <li className='border-b'> View </li>
-          <li className='border-b'> Book </li>
+
+          <li className='p-4 border-b'> Home </li>
+          <li className='p-4 border-b'> Destination </li>
+          <li className='p-4 border-b'> Travel </li>
+          <li className='p-4 border-b'> View </li>
+          <li className='p-4 border-b'> Book </li>
           <div className='flex flex-col'>
-            <button className='my-6'>search</button>
-            <button>login</button>
+            <button className='btn-bg-gradient'>search</button>
+            <button className='btn-bg-gradient'>login</button>
           </div>
-          <div className='flex justify-between my-6'>
+          <div className='flex justify-between my-6 px-2'>
+
             <FontAwesomeIcon icon={faFacebook} className='icon'/>
             <FontAwesomeIcon icon={faYoutube} className='icon'/>
             <FontAwesomeIcon icon={faInstagram} className='icon'/>
