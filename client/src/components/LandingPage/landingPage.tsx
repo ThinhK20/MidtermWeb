@@ -15,23 +15,6 @@ import Footer from './Footer/footer'
 
 function LandingPage() {
   return (
-    // <div className="bg-gray-900 text-gray-200 tracking-tight">
-    //   <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
-    //     <Header />
-
-    //     {/* <main  className="grow">
-    //       <PageIllustration />
-    //       <Hero />
-    //       <Features />
-    //       <Zigzag />
-    //       <Testimonials />
-    //       <Team />
-    //       <ContactUs />
-    //     </main>
-      
-    //     <Footer /> */}
-    //   </div>
-    // </div>
     <div>
       <Navbar />
       <Hero />
