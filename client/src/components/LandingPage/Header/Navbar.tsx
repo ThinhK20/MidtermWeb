@@ -41,7 +41,8 @@ function Navbar() {
       </ul>
 
       {/* End */}
-      <div className='hidden md:flex'>
+      <div className='hidden md:flex justify-center items-center gap-2'>
+        <a className='px-1 font-bold hover:text-gray-400/70 cursor-pointer' href='/'> Sign up </a>
         <button className='button-login'>
           <FontAwesomeIcon icon={faUser} />
           <a className='px-1 font-bold'> login </a>

@@ -122,3 +122,24 @@ export const PAKAGES = [
         duration: "2 days",
     }
 ]
+
+export const TESTIMONIAL = [
+    {
+        title: "Hoang Huu Minh An",
+        profession: "IT",
+        url: "/src/assets/testimonial-01.jpg",
+        des: "Fantastic description, knowleadgeable guides, seameless logistics. Highly recommded"
+    },
+    {
+        title: "Nguyen Huy Hoan",
+        profession: "IT",
+        url: "/src/assets/testimonial-02.jpg",
+        des: "Fantastic description, knowleadgeable guides, seameless logistics. Highly recommded"
+    },
+    {
+        title: "Nguyen Phat Thinh",
+        profession: "IT",
+        url: "/src/assets/testimonial-03.jpg",
+        des: "Fantastic description, knowleadgeable guides, seameless logistics. Highly recommded"
+    }
+]

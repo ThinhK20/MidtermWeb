@@ -42,12 +42,12 @@ function Features1() {
           </p>
         </div>
         <div className='grid items-center gap-4 grid-cols-1 sm:grid-flow-cols-2 lg:grid-cols-3'>
-            {DESTINATION.map((des) => {
+            {DESTINATION.map(({title, url, des}) => {
                 return(
                     <FeaturesItem 
-                        title={des.title}
-                        url={des.url}
-                        des={des.des}/>
+                        title={title}
+                        url={url}
+                        des={des}/>
                 );
             })}
         </div>
