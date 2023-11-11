@@ -29,10 +29,12 @@
     scrollbar-width: none; /* Firefox */
 }
 
+
 @layer base {
     body {
         @apply font-[Poppins]
     }
+
 
     h1 {
         @apply text-3xl md:text-4xl font-bold
@@ -148,5 +150,4 @@
     .camp-quote {
         @apply absolute -right-6 bottom-4 w-[140px] lg:bottom-10 xl:-right-8 xl:w-[186px] 2xl:right-0;
     }
-
 }

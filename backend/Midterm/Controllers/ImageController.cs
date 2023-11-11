@@ -43,5 +43,20 @@ namespace Midterm.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpDelete("{imageId:Guid}")]
+        public async Task<ActionResult<bool>> DeleteImage([FromRoute] Guid imageId)
+        {
+            try
+            {
+                var result = await _imageService.DeleteImageAsync(imageId);
+                if (!result) return NotFound(result);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace Midterm.Services
     {
         public Task<Image> UploadImage(ImageUploadedDTO imageDTO);
         public Task<List<Image>> GetAllImagesAsync();
+        public Task<bool> DeleteImageAsync(Guid imageId);
     }
 }
