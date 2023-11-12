@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Midterm.Models.DTO;
 using Midterm.Models.Entity;
 using Midterm.Services;
 
@@ -15,8 +16,8 @@ namespace Midterm.Controllers
             _userService = userService;
         }
 
-        [HttpPost("add")]
-        public async Task<ActionResult<bool>> SignUp([FromBody] User registerUser)
+        [HttpPost("signup")]
+        public async Task<ActionResult<bool>> SignUp([FromForm] UserUploadedDTO registerUser)
         {
             try
             {
@@ -30,12 +31,11 @@ namespace Midterm.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<bool>> SignIn([FromBody] User loginUser)
+        public async Task<ActionResult<User>> SignIn(UserLoginDTO userLoginDTO)
         {
             try
             {
-                await _userService.SignIn(loginUser);
-                return Ok("Sign in successfully.");
+                return Ok(await _userService.SignIn(userLoginDTO.Email, userLoginDTO.Password));
             }
             catch (Exception ex)
             {

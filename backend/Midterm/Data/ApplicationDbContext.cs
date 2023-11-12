@@ -8,7 +8,7 @@ namespace Midterm.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<Image> Images { get; set; }
-        public DbSet<User> Users { get; set; } // New
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
