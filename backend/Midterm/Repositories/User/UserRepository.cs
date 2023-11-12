@@ -22,5 +22,14 @@ namespace Midterm.Repositories
             await _dbContext.SaveChangesAsync(); // Save user to database
             return true;
         }
+
+        public async Task<bool> SignIn(User loginUser)
+        {
+            if (loginUser == null) throw new ArgumentNullException(nameof(loginUser));
+            var existedUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == loginUser.Email);
+            if (existedUser == null) { throw new Exception("User does not exist."); }
+            if (existedUser.Password != loginUser.Password) { throw new Exception("Password is incorrect."); }
+            return true;
+        }
     }
 }
