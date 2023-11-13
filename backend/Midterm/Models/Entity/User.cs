@@ -6,13 +6,13 @@ namespace Midterm.Models.Entity
     {
         #region fields
         [Key]
-<<<<<<< HEAD
+
         public Guid UserId { get; set; } = Guid.NewGuid();
-        public string? Username { get; set; }
-        public string? Password { get; set; }
-        public string? FulllName { get; set; } 
+        public string? Username { get; set; } 
+        public string? Password { get; set; } 
+        public string? FulllName { get; set; }
         public string? Location { get; set; }
-        public int? Age { get; set; }
+        public int Age { get; set; } = 0;
         public string? Gender { get; set; }
         public string? Email { get; set; }
         public string? Facebook { get; set; }
@@ -22,13 +22,5 @@ namespace Midterm.Models.Entity
         public string? About { get; set; }
         #endregion
 
-=======
-        public Guid Id { get; set; } = Guid.NewGuid();
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string AvatarUrl { get; set; }
->>>>>>> main
     }
 }

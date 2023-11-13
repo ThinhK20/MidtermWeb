@@ -54,18 +54,16 @@ namespace Midterm.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-<<<<<<< HEAD
                     b.Property<string>("About")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("CoverImage")
-=======
+                    b.Property<string>("CoverImage");
+
                     b.Property<string>("AvatarUrl")
                         .IsRequired()
->>>>>>> main
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
