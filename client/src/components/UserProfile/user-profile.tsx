@@ -1,7 +1,7 @@
 import { PAKAGES } from "../../shared/constants";
-import Header from "../LandingPage/Header/header";
-import { PakageItem } from "../LandingPage/Section/Package";
 import BackgroundImage from "../../assets/maldives.jpg";
+import Header from "../../shared/Header/header";
+import { PakageItem } from "../Home/Section/Package";
 
 export default function UserProfile() {
    return (
@@ -12,7 +12,9 @@ export default function UserProfile() {
                className="absolute object-cover w-full h-full top-0 left-0 right-0 bottom-0 -z-10"
             />
          </div> */}
-         <Header />
+         <div className="bg-slate-600 w-full h-full">
+            <Header />
+         </div>
          <div className="grid grid-cols-6 pt-36">
             <div className="col-span-1 gap-4 flex flex-col items-center">
                <img
@@ -78,7 +80,7 @@ export default function UserProfile() {
 
                      <h1 className="text-3xl pt-16">Recently tour booked</h1>
 
-                     <div className=" py-8 flex gap-8 flex-wrap">
+                     <div className=" py-8 grid grid-cols-2 gap-8">
                         {PAKAGES.map((card) => {
                            return (
                               <PakageItem
@@ -90,7 +92,6 @@ export default function UserProfile() {
                               />
                            );
                         })}
-                        sh1
                      </div>
                   </div>
                   <div className="col-span-2">

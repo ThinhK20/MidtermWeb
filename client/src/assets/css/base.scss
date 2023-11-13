@@ -15,13 +15,22 @@
     box-sizing: inherit;
 }
 
-// html{
-//     font-size: 62.5%;
-//     line-height: 1.5rem;
-//     box-sizing: border-box;
-//     font-family: 'Roboto', sans-serif;
-//     overflow-x: hidden;
-// }
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.8rem;
+}
+
+p {
+    font-size: 1.6rem; 
+}
+
 
 .btn{
     text-decoration: none;

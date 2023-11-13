@@ -1,15 +1,20 @@
 import { RouteObject } from "react-router-dom";
 import ErrorPage from "../components/ErrorPage/error-page";
 import App from "../App";
-import LandingPage from "../components/LandingPage/landingPage";
-
 import UserProfile from "../components/UserProfile/user-profile";
-
+import Login from "../components/Login/login";
+import SignUp from "../components/SignUp/signup";
+import LandingPage from "../components/LandingPage/landing-page";
 
 export const routes: RouteObject[] = [
    {
-      path: "/homepage",
+      path: "/",
       element: <App />,
+      errorElement: <ErrorPage />,
+   },
+   {
+      path: "/landing-page",
+      element: <LandingPage />,
       errorElement: <ErrorPage />,
    },
    {
@@ -18,8 +23,13 @@ export const routes: RouteObject[] = [
       errorElement: <ErrorPage />,
    },
    {
-      path: "/",
-      element: <LandingPage />,
+      path: "/signin",
+      element: <Login />,
+      errorElement: <ErrorPage />,
+   },
+   {
+      path: "/signup",
+      element: <SignUp />,
       errorElement: <ErrorPage />,
    },
 ];

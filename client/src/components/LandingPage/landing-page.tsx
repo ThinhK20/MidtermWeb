@@ -1,11 +1,13 @@
-import Footer from "../../shared/Footer/footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Header from "../../shared/Header/header";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons/faLocationDot";
-export default function Home() {
+import Header from "../../shared/Header/header";
+import Footer from "../../shared/Footer/footer";
+import HeaderBackground from "./header-background";
+export default function LandingPage() {
    return (
       <div>
          <Header />
+         <HeaderBackground />
          <div>
             <div>
                <div>
