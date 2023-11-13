@@ -1,113 +1,240 @@
-import { PAKAGES } from "../../shared/constants";
-import BackgroundImage from "../../assets/maldives.jpg";
 import Header from "../../shared/Header/header";
-import { PakageItem } from "../Home/Section/Package";
+import SideBar from "./Section/SideBar/SideBar";
+import SideBarItem from "./Section/SideBar/SideBarItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowRightFromBracket,
+  faChartLine,
+  faGear,
+  faHandsHelping,
+  faReceipt,
+  faTerminal,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+
+import CoverImage from "./Section/CoverImage";
+import Dashboard from "./Section/Dashboard";
+import InfoModal from "./Section/InfoModal";
 
 export default function UserProfile() {
-   return (
-      <div className="relative bg-slate-100">
-         {/* <div>
-            <img
-               src={BackgroundImage}
-               className="absolute object-cover w-full h-full top-0 left-0 right-0 bottom-0 -z-10"
+  const [isDashBoardActive, setDashBoardActive] = useState(true);
+  const [isBasicInfoActive, setBasicInfoActive] = useState(false);
+  const [isAcountActive, setAcountActive] = useState(false);
+  const [isBillingActive, setBillingActive] = useState(false);
+  const [isSettingActive, setSettingActive] = useState(false);
+  const [isHelpActive, setHelpActive] = useState(false);
+  const [isLogOutActive, setLogOutActive] = useState(false);
+
+  const clickEditAvatar = () => {
+    console.log("edit avatar");
+  };
+
+  const clickEditCoverImage = () => {
+    console.log("edit avatar");
+  };
+
+  return (
+    <div className="relative">
+      <div className="bg-slate-600 w-full h-full">
+        <Header />
+      </div>
+
+      <div className="grid grid-cols-6 pt-32">
+        <SideBar
+          avatar={"/src/assets/hhman-ava.png"}
+          user_name={"Ainz Own Goal"}
+          gmail={"hhman@hcmus.edu.vn"}
+          editAvatar={clickEditAvatar}
+        >
+          <SideBarItem
+            icon={<FontAwesomeIcon icon={faChartLine} className="text-3xl" />}
+            text={"Dash Board"}
+            active={isDashBoardActive}
+            handleClick={() => {
+              setDashBoardActive(true);
+              setBasicInfoActive(false);
+              setAcountActive(false);
+              setBillingActive(false);
+              setSettingActive(false);
+              setHelpActive(false);
+              setLogOutActive(false);
+            }}
+          />
+          <SideBarItem
+            icon={<FontAwesomeIcon icon={faTerminal} className="text-3xl" />}
+            text={"Basic Info"}
+            active={isBasicInfoActive}
+            handleClick={() => {
+              setDashBoardActive(false);
+              setBasicInfoActive(true);
+              setAcountActive(false);
+              setBillingActive(false);
+              setSettingActive(false);
+              setHelpActive(false);
+              setLogOutActive(false);
+            }}
+          />
+          <SideBarItem
+            icon={<FontAwesomeIcon icon={faUser} className="text-3xl" />}
+            text={"Acount"}
+            active={isAcountActive}
+            handleClick={() => {
+              setDashBoardActive(false);
+              setBasicInfoActive(false);
+              setAcountActive(true);
+              setBillingActive(false);
+              setSettingActive(false);
+              setHelpActive(false);
+              setLogOutActive(false);
+            }}
+          />
+          <SideBarItem
+            icon={<FontAwesomeIcon icon={faReceipt} className="text-3xl" />}
+            text={"Billing"}
+            active={isBillingActive}
+            handleClick={() => {
+              setDashBoardActive(false);
+              setBasicInfoActive(false);
+              setAcountActive(false);
+              setBillingActive(true);
+              setSettingActive(false);
+              setHelpActive(false);
+              setLogOutActive(false);
+            }}
+          />
+          <SideBarItem
+            icon={<FontAwesomeIcon icon={faGear} className="text-3xl" />}
+            text={"Settings"}
+            active={isSettingActive}
+            handleClick={() => {
+              setDashBoardActive(false);
+              setBasicInfoActive(false);
+              setAcountActive(false);
+              setBillingActive(false);
+              setSettingActive(true);
+              setHelpActive(false);
+              setLogOutActive(false);
+            }}
+          />
+          <SideBarItem
+            icon={
+              <FontAwesomeIcon icon={faHandsHelping} className="text-3xl" />
+            }
+            text={"Helps"}
+            active={isHelpActive}
+            handleClick={() => {
+              setDashBoardActive(false);
+              setBasicInfoActive(false);
+              setAcountActive(false);
+              setBillingActive(false);
+              setSettingActive(false);
+              setHelpActive(true);
+              setLogOutActive(false);
+            }}
+          />
+          <div className="mt-40 flex-row justify-center items-center">
+            <hr></hr>
+            <SideBarItem
+              icon={
+                <FontAwesomeIcon
+                  icon={faArrowRightFromBracket}
+                  className="text-3xl"
+                />
+              }
+              text={"Log out"}
+              active={isLogOutActive}
+              handleClick={() => {
+                setDashBoardActive(false);
+                setBasicInfoActive(false);
+                setAcountActive(false);
+                setBillingActive(false);
+                setSettingActive(false);
+                setHelpActive(false);
+                setLogOutActive(true);
+              }}
             />
-         </div> */}
-         <div className="bg-slate-600 w-full h-full">
-            <Header />
-         </div>
-         <div className="grid grid-cols-6 pt-36">
-            <div className="col-span-1 gap-4 flex flex-col items-center">
-               <img
-                  className="object-cover w-64 h-64 rounded-full"
-                  src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/326531349_947755589483002_6935008565326110642_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ATTCB0rsW4oAX88HGJb&_nc_ht=scontent.fsgn8-4.fna&cb_e2o_trans=t&oh=00_AfAA2VM2AUz-j3jzWx7kwkVmlIfT3QyU5RjBR6CQbzqgIg&oe=6553C0F1"
-               />
-               <div className="flex flex-col gap-1 pl-16 w-full">
-                  <h1 className="text-3xl font-bold text-blue-600">
-                     Jena Ventin
-                  </h1>
-                  <h3 className="text-xl font-bold ">Gold Member</h3>
-               </div>
-               <div className="flex flex-col gap-8 w-full">
-                  <div className="flex flex-col gap-1 pl-16 w-full my-4">
-                     <div className="flex items-center gap-4 items-end">
-                        <h1 className="font-bold text-2xl">Email: </h1>
-                        <span className="font-light text-2xl">
-                           example@gmail.com
-                        </span>
-                     </div>
-                  </div>
-                  <div className="flex flex-col gap-1 pl-16 w-full my-4">
-                     <div className="flex items-center gap-4 items-end">
-                        <h1 className="font-bold text-2xl">Phone: </h1>
-                        <span className="font-light text-2xl">07173551512</span>
-                     </div>
-                  </div>
-                  <div className="flex flex-col gap-1 pl-16 w-full my-4">
-                     <div className="flex items-center gap-4 items-end">
-                        <h1 className="font-bold text-2xl">Birthday: </h1>
-                        <span className="font-light text-2xl">07/08/2012</span>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div className="col-span-5 px-16 flex flex-col gap-16">
-               <img
-                  src={BackgroundImage}
-                  className="object-cover h-96 rounded-3xl w-[100%]"
-               />
+          </div>
+        </SideBar>
 
-               <div className="grid grid-cols-6">
-                  <div className="col-span-4">
-                     <div className="bg-slate-200 mr-8 rounded-3xl p-8">
-                        <h1 className="text-2xl font-bold mb-8">
-                           Recently visited countries
-                        </h1>
-                        <div className="flex items-center gap-4">
-                           <div>
-                              <img
-                                 className="rounded-full w-24 h-24 object-cover"
-                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/2000px-Flag_of_Vietnam.svg.png"
-                              />
-                           </div>
-                           <div>
-                              <img
-                                 className="rounded-full w-24 h-24 object-cover"
-                                 src="https://cdn.britannica.com/49/1949-050-39ED83BA/Flag-South-Korea.jpg"
-                              />
-                           </div>
-                        </div>
-                     </div>
+        <div className="col-span-5 px-16 flex flex-col gap-16">
+          
+            <CoverImage
+               coverImage={"/src/assets/maldives3.jpg"}
+               editCoverImage={clickEditCoverImage}
+            />
 
-                     <h1 className="text-3xl pt-16">Recently tour booked</h1>
+            {isDashBoardActive && <Dashboard />}
+            {isBasicInfoActive && <InfoModal />}
 
-                     <div className=" py-8 grid grid-cols-2 gap-8">
-                        {PAKAGES.map((card) => {
-                           return (
-                              <PakageItem
-                                 title={card.title}
-                                 url={card.url}
-                                 price={card.price}
-                                 des={card.des}
-                                 duration={card.duration}
-                              />
-                           );
-                        })}
-                     </div>
-                  </div>
-                  <div className="col-span-2">
-                     <h1>Introduction</h1>
-                     <p className="font-normal pt-4 text-2xl">
-                        Hey there! I'm someone who absolutely loves to travel.
-                        Exploring new places, meeting different people, and
-                        experiencing diverse cultures bring me so much joy. My
-                        dream? To visit every country on this beautiful planet
-                        during my lifetime. Let's go on this adventure together!
-                        🌍✈️.
-                     </p>
-                  </div>
+            <div className="w-full mx-auto text-3xl ">
+               <div className="md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200">
+               {/* Social links */}
+               <ul className="flex mb-4 md:order-1 md:ml-4 md:mb-0">
+                  <li>
+                     <a
+                     href="#"
+                     className="flex justify-center items-center text-gray-600 hover:text-gray-900 bg-white hover:bg-white-100 rounded-full shadow transition duration-150 ease-in-out"
+                     aria-label="Twitter"
+                     >
+                     <svg
+                        className="w-8 h-8 fill-current"
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                     >
+                        <path d="M24 11.5c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4 0 1.6 1.1 2.9 2.6 3.2-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H8c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4c.7-.5 1.3-1.1 1.7-1.8z" />
+                     </svg>
+                     </a>
+                  </li>
+                  <li className="ml-4">
+                     <a
+                     href="#"
+                     className="flex justify-center items-center text-gray-600 hover:text-gray-900 bg-white hover:bg-white-100 rounded-full shadow transition duration-150 ease-in-out"
+                     aria-label="Github"
+                     >
+                     <svg
+                        className="w-8 h-8 fill-current"
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                     >
+                        <path d="M16 8.2c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4V22c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6-.1-4.4-3.7-8-8.1-8z" />
+                     </svg>
+                     </a>
+                  </li>
+                  <li className="ml-4">
+                     <a
+                     href="#"
+                     className="flex justify-center items-center text-gray-600 hover:text-gray-900 bg-white hover:bg-white-100 rounded-full shadow transition duration-150 ease-in-out"
+                     aria-label="Facebook"
+                     >
+                     <svg
+                        className="w-8 h-8 fill-current"
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                     >
+                        <path d="M14.023 24L14 17h-3v-3h3v-2c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V14H21l-1 3h-2.72v7h-3.257z" />
+                     </svg>
+                     </a>
+                  </li>
+               </ul>
+
+               {/* Copyrights note */}
+               <div className="text-2xl text-gray-600 mr-4">
+                  Made by{" "}
+                  <a
+                     className="text-blue-600 hover:underline"
+                     href="https://cruip.com/"
+                  >
+                     Cruip
+                  </a>
+                  . All rights reserved.
                </div>
             </div>
+         
          </div>
       </div>
-   );
+
+      </div>
+    </div>
+  );
 }
