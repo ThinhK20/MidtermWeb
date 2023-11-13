@@ -54,7 +54,6 @@ namespace Midterm.Repositories
             }
 
         }
-
         public async Task<bool> deleteSingleUserAsync(Guid id)
         {
             try {

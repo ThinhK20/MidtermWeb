@@ -6,7 +6,6 @@ namespace Midterm.Models.Entity
     {
         #region fields
         [Key]
-
         public Guid UserId { get; set; } = Guid.NewGuid();
         public string? Username { get; set; } 
         public string? Password { get; set; } 

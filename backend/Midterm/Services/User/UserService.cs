@@ -1,6 +1,7 @@
 ﻿using Midterm.Models.DTO;
 using Midterm.Models.Entity;
 using Midterm.Repositories;
+using System.Runtime.ConstrainedExecution;
 
 namespace Midterm.Services
 {
@@ -56,33 +57,38 @@ namespace Midterm.Services
             if (user is null || uploadUser is null) return false;
 
 
-            user.Username = uploadUser.Username;
-            user.Username = uploadUser.Username;
-            user.Password = BCrypt.Net.BCrypt.HashPassword(uploadUser.Password);
-            user.FulllName = uploadUser.FulllName;
-            user.About = uploadUser.About;
-            user.Gender = uploadUser.Gender;
-            user.Location = uploadUser.Location;
-            user.Email = uploadUser.Email;
-            user.Facebook = uploadUser.Facebook;
-            user.Phone = uploadUser.Phone;
-            user.Age    = uploadUser.Age;
+            if(uploadUser.Username != null) user.Username = uploadUser.Username;
+            if (uploadUser.Password != null) user.Password = BCrypt.Net.BCrypt.HashPassword(uploadUser.Password);
+            if (uploadUser.FulllName != null) user.FulllName = uploadUser.FulllName;
+            if (uploadUser.About != null) user.About = uploadUser.About;
+            if (uploadUser.Gender != null) user.Gender = uploadUser.Gender;
+            if (uploadUser.Location != null) user.Location = uploadUser.Location;
+            if (uploadUser.Email != null) user.Email = uploadUser.Email;
+            if (uploadUser.Facebook != null) user.Facebook = uploadUser.Facebook;
+            if (uploadUser.Phone != null) user.Phone = uploadUser.Phone;
+            if (uploadUser.Age > 0) user.Age    = uploadUser.Age;
 
-            Image avatar = await _imageRepository.UploadImageAsync(new ImageUploadedDTO
+            if(uploadUser.AvatarFile is not null)
             {
-                Description = "",
-                File = uploadUser.AvatarFile
-            });
+                Image avatar = await _imageRepository.UploadImageAsync(new ImageUploadedDTO
+                {
+                    Description = "",
+                    File = uploadUser.AvatarFile
+                });
 
-            Image coverImage = await _imageRepository.UploadImageAsync(new ImageUploadedDTO
+                user.Avatar = avatar.Url;
+            }
+
+            if (uploadUser.CoverImage is not null)
             {
-                Description = "",
-                File = uploadUser.CoverImage
-            });
+                Image coverImage = await _imageRepository.UploadImageAsync(new ImageUploadedDTO
+                {
+                    Description = "",
+                    File = uploadUser.CoverImage
+                });
 
-            user.Avatar = avatar.Url;
-            user.CoverImage = coverImage.Url;
-
+                user.CoverImage = coverImage.Url;
+            }
 
             return await _userRepository.updateInfoUserAsync(user);
         }
