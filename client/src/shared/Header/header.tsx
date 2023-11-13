@@ -14,21 +14,18 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
    const [nav, setNav] = useState(false);
-   const [logo, setLogo] = useState(false);
 
    const handleNav = () => {
       setNav(!nav);
-      setLogo(!logo);
    };
 
    return (
       <div
          style={{ position: "fixed", left: 0, top: 0 }}
-         className="flex w-full bg-[rgba(0,0,0,0.6)] shadow-lg justify-between items-center h-20 px-4 text-2xl absolute z-10 text-white"
+         className="flex w-full bg-[rgba(0,0,0,0.6)] shadow-xl justify-between items-center h-20 px-4 text-2xl absolute z-10 text-white"
       >
          <div>
-            <h1 onClick={handleNav} className={logo ? "hidden" : "block"}>
-               {" "}
+            <h1 className= "block">
                TRAVEL.{" "}
             </h1>
          </div>
@@ -56,11 +53,10 @@ export default function Header() {
             >
                Sign up
             </Link>
-            <button className="button-login">
+            <button className="button-login ">
                <FontAwesomeIcon icon={faUser} />
-               <Link to={"/signin"} className="px-1 font-bold">
-                  {" "}
-                  Login{" "}
+               <Link to={"/signin"} className="px-1 font-bold ">
+                  Login
                </Link>
             </button>
          </div>
