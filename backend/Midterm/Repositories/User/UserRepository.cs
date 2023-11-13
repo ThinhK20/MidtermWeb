@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Midterm.Data;
 using Midterm.Models.Entity;
 
@@ -22,5 +24,13 @@ namespace Midterm.Repositories
             await _dbContext.SaveChangesAsync(); // Save user to database
             return true;
         }
+
+        public async Task<User> getSingleUserAsync(int id)
+        {
+            var user = await _dbContext.Users!.FindAsync(id);
+
+            return user;
+        }
+
     }
 }
