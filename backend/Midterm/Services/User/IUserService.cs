@@ -7,5 +7,11 @@ namespace Midterm.Services
     {
         public Task<bool> SignUp(UserUploadedDTO registerUser);
         public Task<User> SignIn(string email, string password);
+
+        #region hhman
+        public Task<User?> getSingleUser(Guid id);
+        public Task<bool> deleteSingleUser(Guid id);
+        public Task<bool> updateSingleUser(Guid id, UserUploadedDTO uploadUser);
+        #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Midterm.Data;
+using Midterm.Models.DTO;
 using Midterm.Models.Entity;
 
 namespace Midterm.Repositories
@@ -36,5 +37,57 @@ namespace Midterm.Repositories
             }
             return existedUser;
         }
+
+        // hhman
+        public async Task<User?> getSingleUserAsync(Guid id)
+        {
+            try {
+                var user = await _dbContext.Users!.SingleOrDefaultAsync(u => u.UserId == id);
+
+                if (user == null)
+                    return null;
+
+                return user;
+            }
+            catch (Exception err) {
+                throw new Exception(err.Message);
+            }
+
+        }
+        public async Task<bool> deleteSingleUserAsync(Guid id)
+        {
+            try {
+                var deleteUser = await _dbContext.Users!.SingleOrDefaultAsync(u => u.UserId == id);
+                
+                if(deleteUser is null) return false;
+
+                _dbContext.Users!.Remove(deleteUser);
+                await _dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception err) {
+                throw new Exception(err.Message);
+            }
+
+        }
+        public async Task<bool> updateInfoUserAsync(User? currentUser)
+        {
+            try { 
+
+                if(currentUser == null) return false;
+
+                _dbContext.Users!.Update(currentUser);
+   
+                await _dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
+        //end
     }
 }
