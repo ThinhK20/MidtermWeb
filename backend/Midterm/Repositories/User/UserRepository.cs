@@ -20,11 +20,14 @@ namespace Midterm.Repositories
             if (registerUser == null) throw new ArgumentNullException(nameof(registerUser));
             var existedUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == registerUser.Email);
             if (existedUser != null) { throw new Exception("User already existed."); }
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(registerUser.Password);
+            registerUser.Password = hashedPassword;
             await _dbContext.Users.AddAsync(registerUser); // Add user
             await _dbContext.SaveChangesAsync(); // Save user to database
             return true;
         }
 
+<<<<<<< HEAD
         public async Task<User> getSingleUserAsync(int id)
         {
             var user = await _dbContext.Users!.FindAsync(id);
@@ -32,5 +35,18 @@ namespace Midterm.Repositories
             return user;
         }
 
+=======
+        public async Task<User> SignIn(string email, string password)
+        {
+            if (email == null) throw new ArgumentNullException(nameof(email));
+            var existedUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+            if (existedUser == null) { throw new Exception("User does not exist."); }
+            if (!BCrypt.Net.BCrypt.Verify(password, existedUser.Password))
+            {
+                throw new Exception("Password incorrect.");
+            }
+            return existedUser;
+        }
+>>>>>>> main
     }
 }

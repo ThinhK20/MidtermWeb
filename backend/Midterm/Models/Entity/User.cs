@@ -6,6 +6,7 @@ namespace Midterm.Models.Entity
     {
         #region fields
         [Key]
+<<<<<<< HEAD
         public Guid UserId { get; set; } = Guid.NewGuid();
         public string? Username { get; set; }
         public string? Password { get; set; }
@@ -21,5 +22,13 @@ namespace Midterm.Models.Entity
         public string? About { get; set; }
         #endregion
 
+=======
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string AvatarUrl { get; set; }
+>>>>>>> main
     }
 }
