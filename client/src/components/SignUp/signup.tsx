@@ -1,9 +1,29 @@
 import React from "react";
+import { VIDEO } from "../../shared/constants";
 
 export default function SignUp() {
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <video
+        className="w-full h-full object-cover transition ease-linear duration-700"
+        src={VIDEO[0]}
+        autoPlay
+        loop
+        muted
+        style={{
+          opacity: "0.5",
+        }}
+      />
+      <div
+        className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
+        style={{
+          position: "absolute",
+          top: "0",
+          left: "0",
+          right: "0",
+          bottom: "0",
+        }}
+      >
         <a
           href="#"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
