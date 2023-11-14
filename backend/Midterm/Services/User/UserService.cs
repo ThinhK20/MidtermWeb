@@ -1,7 +1,9 @@
-﻿using Midterm.Models.DTO;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Midterm.Models.DTO;
 using Midterm.Models.Entity;
 using Midterm.Repositories;
-using System.Runtime.ConstrainedExecution;
+using Midterm.Repositories.Auth;
 
 namespace Midterm.Services
 {
@@ -9,35 +11,48 @@ namespace Midterm.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IImageRepository _imageRepository;
+        private readonly IAuthRepository _authRepository;
+        private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepository, IImageRepository imageRepository)
+        public UserService(IUserRepository userRepository, IImageRepository imageRepository, IAuthRepository authRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _imageRepository = imageRepository;
+            _authRepository = authRepository;
+            _mapper = mapper;
         }
 
-        public async Task<bool> SignUp(UserUploadedDTO registerUser)
+        public async Task<bool> SignUp([FromForm] UserUploadedDTO registerUser)
         {
-            Image avatar = await _imageRepository.UploadImageAsync(new ImageUploadedDTO
+            var avatarUrl = "";
+            if (registerUser.AvatarFile != null)
             {
-                Description = "",
-                File = registerUser.AvatarFile
-            });
+                Image avatar = await _imageRepository.UploadImageAsync(new ImageUploadedDTO
+                {
+                    Description = "",
+                    File = registerUser.AvatarFile
+                });
+                avatarUrl = avatar.Url;
+            }
             User user = new User
             {
                 Email = registerUser.Email,
                 Password = registerUser.Password,
                 Phone = registerUser.Phone,
                 Username = registerUser.Username,
-                Avatar = avatar.Url,
+                Avatar = avatarUrl,
             };
             // Insert more logic here.
             return await _userRepository.SignUp(user);
         }
 
-        public async Task<User> SignIn(string email, string password)
+        public async Task<UserDTO> SignIn(string email, string password)
         {
-            return await _userRepository.SignIn(email, password);
+            User loginUser = await _userRepository.SignIn(email, password);
+            string accessToken = _authRepository.GenerateJwtToken(loginUser);
+            UserDTO userDTO = _mapper.Map<UserDTO>(loginUser);
+            userDTO.AccessToken = accessToken;
+            return userDTO;
         }
 
         // hhman
@@ -57,18 +72,18 @@ namespace Midterm.Services
             if (user is null || uploadUser is null) return false;
 
 
-            if(uploadUser.Username != null) user.Username = uploadUser.Username;
+            if (uploadUser.Username != null) user.Username = uploadUser.Username;
             if (uploadUser.Password != null) user.Password = BCrypt.Net.BCrypt.HashPassword(uploadUser.Password);
-            if (uploadUser.FulllName != null) user.FulllName = uploadUser.FulllName;
+            if (uploadUser.FullName != null) user.FulllName = uploadUser.FullName;
             if (uploadUser.About != null) user.About = uploadUser.About;
             if (uploadUser.Gender != null) user.Gender = uploadUser.Gender;
             if (uploadUser.Location != null) user.Location = uploadUser.Location;
             if (uploadUser.Email != null) user.Email = uploadUser.Email;
             if (uploadUser.Facebook != null) user.Facebook = uploadUser.Facebook;
             if (uploadUser.Phone != null) user.Phone = uploadUser.Phone;
-            if (uploadUser.Age > 0) user.Age    = uploadUser.Age;
+            if (uploadUser.Age != null) user.Age = (int)uploadUser.Age;
 
-            if(uploadUser.AvatarFile is not null)
+            if (uploadUser.AvatarFile is not null)
             {
                 Image avatar = await _imageRepository.UploadImageAsync(new ImageUploadedDTO
                 {

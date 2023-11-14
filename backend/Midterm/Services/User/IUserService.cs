@@ -6,7 +6,7 @@ namespace Midterm.Services
     public interface IUserService
     {
         public Task<bool> SignUp(UserUploadedDTO registerUser);
-        public Task<User> SignIn(string email, string password);
+        public Task<UserDTO> SignIn(string email, string password);
 
         #region hhman
         public Task<User?> getSingleUser(Guid id);

@@ -1,8 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Midterm;
 using Midterm.Data;
 using Midterm.Repositories;
+using Midterm.Repositories.Auth;
 using Midterm.Services;
+using Swashbuckle.AspNetCore.Filters;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +23,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Add scope repositories
 builder.Services.AddScoped<IImageRepository, ImageRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 // Add scope for services
 builder.Services.AddScoped<IImageService, ImageService>();
@@ -27,10 +33,41 @@ builder.Services.AddScoped<IUserService, UserService>();
 
 // Add controllers
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey
+    });
+    options.OperationFilter<SecurityRequirementsOperationFilter>();
+});
+
+builder.Services.AddAuthentication().AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ClockSkew = TimeSpan.Zero,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JwtToken:Token").Value!)),
+        ValidateLifetime = true,
+        ValidateAudience = true,
+        ValidateIssuer = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration.GetSection("JwtToken:Issuer").Value!,
+        ValidAudience = builder.Configuration.GetSection("JwtToken:Audience").Value!,
+    };
+});
+
 
 var app = builder.Build();
 
@@ -43,6 +80,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(options => options.SetIsOriginAllowed(origins => true).AllowAnyHeader().AllowAnyMethod());
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
