@@ -311,7 +311,8 @@ function InfoModal() {
                      updateUserApi(userBasicInfo).then((value) =>{
                         console.log(value);
                         toast.success(
-                           "Upload Info Basic successfully !"
+                           "Upload Info Basic successfully!"
+
                         );
                      });
                   }}

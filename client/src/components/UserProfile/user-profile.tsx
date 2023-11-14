@@ -18,7 +18,136 @@ import Dashboard from "./Section/Dashboard";
 import InfoModal from "./Section/InfoModal";
 import AccountModal from "./Section/AccountModal";
 
+
 export default function UserProfile() {
+   const [isDashBoardActive, setDashBoardActive] = useState(true);
+   const [isBasicInfoActive, setBasicInfoActive] = useState(false);
+   const [isAcountActive, setAcountActive] = useState(false);
+   const [isBillingActive, setBillingActive] = useState(false);
+   const [isSettingActive, setSettingActive] = useState(false);
+   const [isHelpActive, setHelpActive] = useState(false);
+   const [isLogOutActive, setLogOutActive] = useState(false);
+
+   return (
+      <div className="relative">
+         <div className="bg-slate-600 w-full h-full">
+            <Header />
+         </div>
+
+         <div className="grid grid-cols-6 pt-32">
+            <div className="col-span-1 flex flex-col">
+               <SideBar
+                  avatar={"/src/assets/hhman-ava.png"}
+                  user_name={"Ainz Own Goal"}
+                  gmail={"hhman@hcmus.edu.vn"}
+               >
+                  <SideBarItem
+                     icon={
+                        <FontAwesomeIcon
+                           icon={faChartLine}
+                           className="text-3xl"
+                        />
+                     }
+                     text={"Dashboard"}
+                     active={isDashBoardActive}
+                     handleClick={() => {
+                        setDashBoardActive(true);
+                        setBasicInfoActive(false);
+                        setAcountActive(false);
+                        setBillingActive(false);
+                        setSettingActive(false);
+                        setHelpActive(false);
+                        setLogOutActive(false);
+                     }}
+                  />
+                  <SideBarItem
+                     icon={
+                        <FontAwesomeIcon
+                           icon={faTerminal}
+                           className="text-3xl"
+                        />
+                     }
+                     text={"Basic Info"}
+                     active={isBasicInfoActive}
+                     handleClick={() => {
+                        setDashBoardActive(false);
+                        setBasicInfoActive(true);
+                        setAcountActive(false);
+                        setBillingActive(false);
+                        setSettingActive(false);
+                        setHelpActive(false);
+                        setLogOutActive(false);
+                     }}
+                  />
+                  <SideBarItem
+                     icon={
+                        <FontAwesomeIcon icon={faUser} className="text-3xl" />
+                     }
+                     text={"Account"}
+                     active={isAcountActive}
+                     handleClick={() => {
+                        setDashBoardActive(false);
+                        setBasicInfoActive(false);
+                        setAcountActive(true);
+                        setBillingActive(false);
+                        setSettingActive(false);
+                        setHelpActive(false);
+                        setLogOutActive(false);
+                     }}
+                  />
+                  <SideBarItem
+                     icon={
+                        <FontAwesomeIcon
+                           icon={faReceipt}
+                           className="text-3xl"
+                        />
+                     }
+                     text={"Billing"}
+                     active={isBillingActive}
+                     handleClick={() => {
+                        setDashBoardActive(false);
+                        setBasicInfoActive(false);
+                        setAcountActive(false);
+                        setBillingActive(true);
+                        setSettingActive(false);
+                        setHelpActive(false);
+                        setLogOutActive(false);
+                     }}
+                  />
+                  <SideBarItem
+                     icon={
+                        <FontAwesomeIcon icon={faGear} className="text-3xl" />
+                     }
+                     text={"Settings"}
+                     active={isSettingActive}
+                     handleClick={() => {
+                        setDashBoardActive(false);
+                        setBasicInfoActive(false);
+                        setAcountActive(false);
+                        setBillingActive(false);
+                        setSettingActive(true);
+                        setHelpActive(false);
+                        setLogOutActive(false);
+                     }}
+                  />
+                  <SideBarItem
+                     icon={
+                        <FontAwesomeIcon
+                           icon={faHandsHelping}
+                           className="text-3xl"
+                        />
+                     }
+                     text={"Helps"}
+                     active={isHelpActive}
+                     handleClick={() => {
+                        setDashBoardActive(false);
+                        setBasicInfoActive(false);
+                        setAcountActive(false);
+                        setBillingActive(false);
+                        setSettingActive(false);
+                        setHelpActive(true);
+                        setLogOutActive(false);
+
   const [isDashBoardActive, setDashBoardActive] = useState(true);
   const [isBasicInfoActive, setBasicInfoActive] = useState(false);
   const [isAcountActive, setAcountActive] = useState(false);
@@ -158,9 +287,9 @@ export default function UserProfile() {
             }
           />
 
-          {isDashBoardActive && <Dashboard />}
-          {isBasicInfoActive && <InfoModal />}
-          {isAcountActive && <AccountModal />}
+               {isDashBoardActive && <Dashboard />}
+               {isBasicInfoActive && <InfoModal />}
+               {isAcountActive && <AccountModal emailUser={"hhman@student.hcmus"} />}
 
           <div className="w-full mx-auto text-3xl ">
             <div className="md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200">
