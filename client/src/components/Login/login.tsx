@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { VIDEO } from "../../shared/constants";
 import Footer from "../../shared/Footer/footer";
 import Header from "../../shared/Header/header";
@@ -26,10 +26,30 @@ export default function Login() {
          body: JSON.stringify({ email, password }),
       })
          .then((res) => res.json())
+         .then(() => {
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+            localStorage.setItem("isLogin", "true");
+         })
          .then((data) => {
             console.log(data);
+         })
+         .catch((err) => {
+            console.log(err);
+            localStorage.setItem("isLogin", "false");
          });
    };
+
+   useEffect(() => {
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+
+      //  console.log("email: " + localStorage.getItem("email"));
+      //  console.log("password: " + localStorage.getItem("password"));
+   }, [
+      email,
+      password,
+   ]); /* this will make sure that the useEffect hook runs only once */
 
    return (
       <>

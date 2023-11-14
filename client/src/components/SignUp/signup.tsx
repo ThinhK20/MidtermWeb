@@ -27,8 +27,10 @@ export default function SignUp() {
          body: formData,
       })
          .then((res) => res.json())
-         .then((data) => {
-            console.log(data);
+         .then(() => {
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+            localStorage.setItem("isLogin", "true");
          });
    }
 
