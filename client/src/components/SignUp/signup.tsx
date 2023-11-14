@@ -32,21 +32,8 @@ export default function SignUp() {
       .then((data) => {
         console.log(data);
         localStorage.setItem("isLogin", "true");
-        localStorage.setItem("userId", data.userId);
-        localStorage.setItem("username", data.username);
-        localStorage.setItem("password", data.password);
-        localStorage.setItem("location", data.location);
-        localStorage.setItem("age", data.age);
-        localStorage.setItem("gender", data.gender);
-        localStorage.setItem("email", data.email);
-        localStorage.setItem("fullName", data.fullName);
-        localStorage.setItem("facebook", data.facebook);
-        localStorage.setItem("phone", data.phone);
-        localStorage.setItem("avatar", data.avatar);
-        localStorage.setItem("coverImage", data.coverImage);
-        localStorage.setItem("about", data.about);
-        localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("refreshToken", data.refreshToken);
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
       })
       .catch((err) => {
         console.log(err);
