@@ -27,6 +27,7 @@ export default function UserProfile() {
    const [isSettingActive, setSettingActive] = useState(false);
    const [isHelpActive, setHelpActive] = useState(false);
    const [isLogOutActive, setLogOutActive] = useState(false);
+
    return (
       <div className="relative">
          <div className="bg-slate-600 w-full h-full">
@@ -47,7 +48,7 @@ export default function UserProfile() {
                            className="text-3xl"
                         />
                      }
-                     text={"Dash Board"}
+                     text={"Dashboard"}
                      active={isDashBoardActive}
                      handleClick={() => {
                         setDashBoardActive(true);
@@ -82,7 +83,7 @@ export default function UserProfile() {
                      icon={
                         <FontAwesomeIcon icon={faUser} className="text-3xl" />
                      }
-                     text={"Acount"}
+                     text={"Account"}
                      active={isAcountActive}
                      handleClick={() => {
                         setDashBoardActive(false);
@@ -178,7 +179,7 @@ export default function UserProfile() {
 
                {isDashBoardActive && <Dashboard />}
                {isBasicInfoActive && <InfoModal />}
-               {isAcountActive && <AccountModal />}
+               {isAcountActive && <AccountModal emailUser={"hhman@student.hcmus"} />}
 
                <div className="w-full mx-auto text-3xl ">
                   <div className="md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200">

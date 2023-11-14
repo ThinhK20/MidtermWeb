@@ -6,6 +6,7 @@ export interface UserUpload {
    avatarFile?: File;
    fullName?: string;
    location?: string;
+   country?: string;
    age?: number;
    gender?: string;
    facebook?: string;

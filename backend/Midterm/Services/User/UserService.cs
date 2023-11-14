@@ -78,10 +78,14 @@ namespace Midterm.Services
             if (uploadUser.About != null) user.About = uploadUser.About;
             if (uploadUser.Gender != null) user.Gender = uploadUser.Gender;
             if (uploadUser.Location != null) user.Location = uploadUser.Location;
+            if (uploadUser.Country != null) user.Country = uploadUser.Country;
             if (uploadUser.Email != null) user.Email = uploadUser.Email;
             if (uploadUser.Facebook != null) user.Facebook = uploadUser.Facebook;
             if (uploadUser.Phone != null) user.Phone = uploadUser.Phone;
-            if (uploadUser.Age != null) user.Age = (int)uploadUser.Age;
+            if (uploadUser.Age != null)
+            {
+                if(uploadUser.Age > 0) user.Age = (int)uploadUser.Age;
+            }
 
             if (uploadUser.AvatarFile is not null)
             {

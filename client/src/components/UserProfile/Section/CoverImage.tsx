@@ -2,6 +2,7 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { UserUpload } from "../../../models/user";
 import { updateUserApi } from "../../../apis/user-apis";
+import { toast } from "react-toastify";
 
 interface Props {
    coverImage: string;
@@ -15,10 +16,10 @@ function CoverImage({ coverImage }: Props) {
             className="object-cover h-96 rounded-3xl w-[100%]"
             alt="cover image"
          />
-         <button className="invisible absolute top-1 right-1 -translate-x-1 bg-transparent border-none transition-all hover:scale-125 ease-out hover:text-gray-600 group-hover:visible">
-            <FontAwesomeIcon icon={faPenToSquare} />
-            <label htmlFor="uploadCoverImage" className="mx-2">
-               Edit
+         <button className="invisible absolute text-xl top-1 right-1 -translate-x-1 bg-transparent border-none transition-all hover:scale-125 ease-out hover:text-gray-600 group-hover:visible">
+            <label htmlFor="uploadCoverImage" className="mx-2 flex gap-2 cursor-pointer items-center">
+              <FontAwesomeIcon icon={faPenToSquare} />
+              <span className="mt-0.5">Edit</span>
             </label>
             <input
                type="file"
@@ -36,7 +37,11 @@ function CoverImage({ coverImage }: Props) {
                      const newUser = {
                         coverImage: file,
                      } as UserUpload;
-                     updateUserApi(newUser).then((value) => console.log(value));
+                     updateUserApi(newUser).then(() => {
+                        toast.success(
+                          "Upload Cover Image successfully !"
+                      );
+                     });
                   }
                }}
             />

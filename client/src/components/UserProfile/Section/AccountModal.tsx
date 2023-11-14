@@ -1,9 +1,20 @@
 import { faFacebook, faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons"
 import { faDatabase } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {useState} from "react"
+import { UserUpload } from "../../../models/user";
+import { updateUserApi } from "../../../apis/user-apis";
+import { toast } from "react-toastify";
 
+interface AccountInfoProps {
+    emailUser?: string
+}
 
-function AccountModal() {
+function AccountModal({emailUser}: AccountInfoProps) {
+    const [AccountInfo, setAccountInfo] = useState<UserUpload>({
+        email: "",
+    });
+
   return (
     <div className="w-[100%] h-auto padding-container py-20 shadow-md bg-white hover:shadow-xl rounded-3xl">
         <div className="my-10">
@@ -11,20 +22,23 @@ function AccountModal() {
 
             <div className="flex justify-between items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
                 <div className="w-2/3 flex justify-between items-center">
-                    TRAVEL ID
-                    <input className="w-2/3 border-none outline-none" value={"ABCD-ABCD-ABCD"}></input>
+                    Email
+                    <input  className="w-2/3 border-none outline-none" 
+                            onChange={(e) => setAccountInfo({
+                                ...AccountInfo,
+                                email: e.target.value,
+                            })}/>
                 </div>
-                <button className="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5">
-                    Save
-                </button>
-            </div>
-
-            <div className="flex justify-between items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
-                <div className="w-2/3 flex justify-between items-center">
-                    User Name
-                    <input className="w-2/3 border-none outline-none" value={"hhman"}></input>
-                </div>
-                <button className="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5">
+                <button className="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5"
+                        type="button"
+                        onClick={() => {
+                            updateUserApi(AccountInfo).then((value) => {
+                                console.log(value);
+                                toast.success(
+                                    "Upload Info Basic successfully!"
+                                );
+                            });
+                        }}>
                     Save
                 </button>
             </div>
