@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Midterm.Models.DTO;
 using Midterm.Models.Entity;
 using Midterm.Services;
@@ -47,17 +49,20 @@ namespace Midterm.Controllers
 
         // GET: api/<UerController>/2
         [HttpGet("{id}")]
+        [Authorize(Roles = nameof(Role.Admin))]
         public async Task<ActionResult<User>> GetSingleUser(Guid id)
         {
-            try { 
+            try
+            {
                 var user = await _userService.getSingleUser(id);
 
-                if(user == null) return NotFound();
+                if (user == null) return NotFound();
 
                 return Ok(user);
 
             }
-            catch (Exception err) { 
+            catch (Exception err)
+            {
                 return BadRequest(err.Message);
             }
         }
@@ -66,12 +71,14 @@ namespace Midterm.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> updateUser(Guid id, [FromForm] UserUploadedDTO user)
         {
-            try { 
+            try
+            {
                 var isSuccess = await _userService.updateSingleUser(id, user);
                 if (!isSuccess) return NotFound("User doesn't exist");
                 return Ok("Success !!");
             }
-            catch (Exception err) { 
+            catch (Exception err)
+            {
                 return BadRequest(err.Message);
             }
         }

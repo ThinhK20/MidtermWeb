@@ -45,6 +45,7 @@ namespace Midterm.Services
             User loginUser = await _userRepository.SignIn(email, password);
             string accessToken = _authRepository.GenerateJwtToken(loginUser);
             UserDTO userDTO = _mapper.Map<UserDTO>(loginUser);
+            userDTO.AccessToken = accessToken;
             return userDTO;
         }
 

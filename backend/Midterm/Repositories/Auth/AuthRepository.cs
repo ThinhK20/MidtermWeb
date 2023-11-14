@@ -31,14 +31,13 @@ namespace Midterm.Repositories.Auth
             };
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("JwtToken:Token").Value!));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 claims: claims,
                 expires: DateTime.Now.AddDays(5),
                 signingCredentials: credentials,
                 issuer: issuer,
                 audience: audience);
-
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
