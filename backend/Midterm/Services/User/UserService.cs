@@ -1,7 +1,8 @@
-﻿using Midterm.Models.DTO;
+﻿using AutoMapper;
+using Midterm.Models.DTO;
 using Midterm.Models.Entity;
 using Midterm.Repositories;
-using System.Runtime.ConstrainedExecution;
+using Midterm.Repositories.Auth;
 
 namespace Midterm.Services
 {
@@ -9,11 +10,15 @@ namespace Midterm.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IImageRepository _imageRepository;
+        private readonly IAuthRepository _authRepository;
+        private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepository, IImageRepository imageRepository)
+        public UserService(IUserRepository userRepository, IImageRepository imageRepository, IAuthRepository authRepository, IMapper mapper)
         {
             _userRepository = userRepository;
             _imageRepository = imageRepository;
+            _authRepository = authRepository;
+            _mapper = mapper;
         }
 
         public async Task<bool> SignUp(UserUploadedDTO registerUser)
@@ -35,9 +40,12 @@ namespace Midterm.Services
             return await _userRepository.SignUp(user);
         }
 
-        public async Task<User> SignIn(string email, string password)
+        public async Task<UserDTO> SignIn(string email, string password)
         {
-            return await _userRepository.SignIn(email, password);
+            User loginUser = await _userRepository.SignIn(email, password);
+            string accessToken = _authRepository.GenerateJwtToken(loginUser);
+            UserDTO userDTO = _mapper.Map<UserDTO>(loginUser);
+            return userDTO;
         }
 
         // hhman
@@ -57,7 +65,7 @@ namespace Midterm.Services
             if (user is null || uploadUser is null) return false;
 
 
-            if(uploadUser.Username != null) user.Username = uploadUser.Username;
+            if (uploadUser.Username != null) user.Username = uploadUser.Username;
             if (uploadUser.Password != null) user.Password = BCrypt.Net.BCrypt.HashPassword(uploadUser.Password);
             if (uploadUser.FulllName != null) user.FulllName = uploadUser.FulllName;
             if (uploadUser.About != null) user.About = uploadUser.About;
@@ -66,9 +74,9 @@ namespace Midterm.Services
             if (uploadUser.Email != null) user.Email = uploadUser.Email;
             if (uploadUser.Facebook != null) user.Facebook = uploadUser.Facebook;
             if (uploadUser.Phone != null) user.Phone = uploadUser.Phone;
-            if (uploadUser.Age > 0) user.Age    = uploadUser.Age;
+            if (uploadUser.Age > 0) user.Age = uploadUser.Age;
 
-            if(uploadUser.AvatarFile is not null)
+            if (uploadUser.AvatarFile is not null)
             {
                 Image avatar = await _imageRepository.UploadImageAsync(new ImageUploadedDTO
                 {

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Midterm.Models.DTO;
+using Midterm.Models.Entity;
 
 namespace Midterm
 {
@@ -6,6 +8,7 @@ namespace Midterm
     {
         public MapperConfig()
         {
+            CreateMap<User, UserDTO>().ReverseMap();
         }
     }
 }
