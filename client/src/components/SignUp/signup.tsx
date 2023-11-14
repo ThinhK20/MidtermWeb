@@ -74,8 +74,8 @@ export default function SignUp() {
           }}
         >
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold text-center leading-tight tracking-tight text-black-900 md:text-2xl light:text-black">
-              Create and account
+            <h1 className="text-xl font-bold text-center leading-tight tracking-tight text-black-900 md:text-3xl light:text-black">
+              Create an account
             </h1>
             <form className="space-y-4 md:space-y-6" action="#">
               <div>
