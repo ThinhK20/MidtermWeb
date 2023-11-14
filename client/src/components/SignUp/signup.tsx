@@ -19,16 +19,12 @@ export default function SignUp() {
 
    function sendRequest() {
       const url = "https://localhost:44320/api/user/signup";
-      console.log({
-         email,
-         password,
-      });
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("password", password);
       fetch(url, {
          method: "POST",
-         headers: {
-            "Content-Type": "multipart/form-data",
-         },
-         body: JSON.stringify({ email, password }),
+         body: formData,
       })
          .then((res) => res.json())
          .then((data) => {

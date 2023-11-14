@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Midterm.Models.DTO;
 using Midterm.Models.Entity;
 using Midterm.Repositories;
@@ -21,7 +22,7 @@ namespace Midterm.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> SignUp(UserUploadedDTO registerUser)
+        public async Task<bool> SignUp([FromForm] UserUploadedDTO registerUser)
         {
             var avatarUrl = "";
             if (registerUser.AvatarFile != null)
@@ -73,7 +74,7 @@ namespace Midterm.Services
 
             if (uploadUser.Username != null) user.Username = uploadUser.Username;
             if (uploadUser.Password != null) user.Password = BCrypt.Net.BCrypt.HashPassword(uploadUser.Password);
-            if (uploadUser.FulllName != null) user.FulllName = uploadUser.FulllName;
+            if (uploadUser.FullName != null) user.FulllName = uploadUser.FullName;
             if (uploadUser.About != null) user.About = uploadUser.About;
             if (uploadUser.Gender != null) user.Gender = uploadUser.Gender;
             if (uploadUser.Location != null) user.Location = uploadUser.Location;

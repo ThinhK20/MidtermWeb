@@ -33,7 +33,7 @@ namespace Midterm.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<User>> SignIn(UserLoginDTO userLoginDTO)
+        public async Task<ActionResult<User>> SignIn([FromForm] UserLoginDTO userLoginDTO)
         {
             try
             {
