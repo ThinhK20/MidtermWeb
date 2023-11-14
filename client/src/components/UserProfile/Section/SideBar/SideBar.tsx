@@ -48,9 +48,10 @@ function SideBar({avatar, user_name, gmail, children, editAvatar}:SideBarProps) 
 
       <div className="h-screen fixed">
         <nav className="h-full w-96 flex-col bg-white border-r shadow-sm" >
+            
             <div className="flex flex-col justify-center items-center mt-6 -mx-2" >
               <div className="relative group">
-                <img src={avatar} alt="avatar" className="object-cover w-52 h-48 mx-2 rounded-xl ring-4 ring-slate-400 "/>
+                <img src={avatar} alt="avatar" className="w-52 h-48 mx-2 rounded-xl ring-4 ring-slate-400 "/>
                 <button className="absolute bottom-1 left-1/2 -translate-x-1/2 bg-transparent border-none scale-0 group-hover:scale-100 transition-all duration-700 hover:text-gray-400" onClick={editAvatar}>
                   <FontAwesomeIcon icon={faPenToSquare}/>
                   <span className="mx-2">Edit</span>
@@ -61,7 +62,7 @@ function SideBar({avatar, user_name, gmail, children, editAvatar}:SideBarProps) 
               <p className="mx-2 mt-1 medium-14 text-gray-600">{gmail}</p>
             </div>
 
-            <ul className=" px-3 ">
+            <ul className="px-3">
                 {children}
             </ul>
 

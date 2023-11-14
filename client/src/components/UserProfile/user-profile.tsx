@@ -41,121 +41,123 @@ export default function UserProfile() {
       </div>
 
       <div className="grid grid-cols-6 pt-32">
-        <SideBar
-          avatar={"/src/assets/hhman-ava.png"}
-          user_name={"Ainz Own Goal"}
-          gmail={"hhman@hcmus.edu.vn"}
-          editAvatar={clickEditAvatar}
-        >
-          <SideBarItem
-            icon={<FontAwesomeIcon icon={faChartLine} className="text-3xl" />}
-            text={"Dash Board"}
-            active={isDashBoardActive}
-            handleClick={() => {
-              setDashBoardActive(true);
-              setBasicInfoActive(false);
-              setAcountActive(false);
-              setBillingActive(false);
-              setSettingActive(false);
-              setHelpActive(false);
-              setLogOutActive(false);
-            }}
-          />
-          <SideBarItem
-            icon={<FontAwesomeIcon icon={faTerminal} className="text-3xl" />}
-            text={"Basic Info"}
-            active={isBasicInfoActive}
-            handleClick={() => {
-              setDashBoardActive(false);
-              setBasicInfoActive(true);
-              setAcountActive(false);
-              setBillingActive(false);
-              setSettingActive(false);
-              setHelpActive(false);
-              setLogOutActive(false);
-            }}
-          />
-          <SideBarItem
-            icon={<FontAwesomeIcon icon={faUser} className="text-3xl" />}
-            text={"Acount"}
-            active={isAcountActive}
-            handleClick={() => {
-              setDashBoardActive(false);
-              setBasicInfoActive(false);
-              setAcountActive(true);
-              setBillingActive(false);
-              setSettingActive(false);
-              setHelpActive(false);
-              setLogOutActive(false);
-            }}
-          />
-          <SideBarItem
-            icon={<FontAwesomeIcon icon={faReceipt} className="text-3xl" />}
-            text={"Billing"}
-            active={isBillingActive}
-            handleClick={() => {
-              setDashBoardActive(false);
-              setBasicInfoActive(false);
-              setAcountActive(false);
-              setBillingActive(true);
-              setSettingActive(false);
-              setHelpActive(false);
-              setLogOutActive(false);
-            }}
-          />
-          <SideBarItem
-            icon={<FontAwesomeIcon icon={faGear} className="text-3xl" />}
-            text={"Settings"}
-            active={isSettingActive}
-            handleClick={() => {
-              setDashBoardActive(false);
-              setBasicInfoActive(false);
-              setAcountActive(false);
-              setBillingActive(false);
-              setSettingActive(true);
-              setHelpActive(false);
-              setLogOutActive(false);
-            }}
-          />
-          <SideBarItem
-            icon={
-              <FontAwesomeIcon icon={faHandsHelping} className="text-3xl" />
-            }
-            text={"Helps"}
-            active={isHelpActive}
-            handleClick={() => {
-              setDashBoardActive(false);
-              setBasicInfoActive(false);
-              setAcountActive(false);
-              setBillingActive(false);
-              setSettingActive(false);
-              setHelpActive(true);
-              setLogOutActive(false);
-            }}
-          />
-          <div className="mt-40 flex-row justify-center items-center">
-            <hr></hr>
+        <div className="col-span-1 flex flex-col">
+          <SideBar
+            avatar={"/src/assets/hhman-ava.png"}
+            user_name={"Ainz Own Goal"}
+            gmail={"hhman@hcmus.edu.vn"}
+            editAvatar={clickEditAvatar}
+          >
+            <SideBarItem
+              icon={<FontAwesomeIcon icon={faChartLine} className="text-3xl" />}
+              text={"Dash Board"}
+              active={isDashBoardActive}
+              handleClick={() => {
+                setDashBoardActive(true);
+                setBasicInfoActive(false);
+                setAcountActive(false);
+                setBillingActive(false);
+                setSettingActive(false);
+                setHelpActive(false);
+                setLogOutActive(false);
+              }}
+            />
+            <SideBarItem
+              icon={<FontAwesomeIcon icon={faTerminal} className="text-3xl" />}
+              text={"Basic Info"}
+              active={isBasicInfoActive}
+              handleClick={() => {
+                setDashBoardActive(false);
+                setBasicInfoActive(true);
+                setAcountActive(false);
+                setBillingActive(false);
+                setSettingActive(false);
+                setHelpActive(false);
+                setLogOutActive(false);
+              }}
+            />
+            <SideBarItem
+              icon={<FontAwesomeIcon icon={faUser} className="text-3xl" />}
+              text={"Acount"}
+              active={isAcountActive}
+              handleClick={() => {
+                setDashBoardActive(false);
+                setBasicInfoActive(false);
+                setAcountActive(true);
+                setBillingActive(false);
+                setSettingActive(false);
+                setHelpActive(false);
+                setLogOutActive(false);
+              }}
+            />
+            <SideBarItem
+              icon={<FontAwesomeIcon icon={faReceipt} className="text-3xl" />}
+              text={"Billing"}
+              active={isBillingActive}
+              handleClick={() => {
+                setDashBoardActive(false);
+                setBasicInfoActive(false);
+                setAcountActive(false);
+                setBillingActive(true);
+                setSettingActive(false);
+                setHelpActive(false);
+                setLogOutActive(false);
+              }}
+            />
+            <SideBarItem
+              icon={<FontAwesomeIcon icon={faGear} className="text-3xl" />}
+              text={"Settings"}
+              active={isSettingActive}
+              handleClick={() => {
+                setDashBoardActive(false);
+                setBasicInfoActive(false);
+                setAcountActive(false);
+                setBillingActive(false);
+                setSettingActive(true);
+                setHelpActive(false);
+                setLogOutActive(false);
+              }}
+            />
             <SideBarItem
               icon={
-                <FontAwesomeIcon
-                  icon={faArrowRightFromBracket}
-                  className="text-3xl"
-                />
+                <FontAwesomeIcon icon={faHandsHelping} className="text-3xl" />
               }
-              text={"Log out"}
-              active={isLogOutActive}
+              text={"Helps"}
+              active={isHelpActive}
               handleClick={() => {
                 setDashBoardActive(false);
                 setBasicInfoActive(false);
                 setAcountActive(false);
                 setBillingActive(false);
                 setSettingActive(false);
-                setHelpActive(false);
-                setLogOutActive(true);
+                setHelpActive(true);
+                setLogOutActive(false);
               }}
             />
-          </div>
-        </SideBar>
+            <div className="mt-40 flex-row justify-center items-center">
+              <hr></hr>
+              <SideBarItem
+                icon={
+                  <FontAwesomeIcon
+                    icon={faArrowRightFromBracket}
+                    className="text-3xl"
+                  />
+                }
+                text={"Log out"}
+                active={isLogOutActive}
+                handleClick={() => {
+                  setDashBoardActive(false);
+                  setBasicInfoActive(false);
+                  setAcountActive(false);
+                  setBillingActive(false);
+                  setSettingActive(false);
+                  setHelpActive(false);
+                  setLogOutActive(true);
+                }}
+              />
+            </div>
+          </SideBar>
+        </div>
 
         <div className="col-span-5 px-16 flex flex-col gap-16">
           
