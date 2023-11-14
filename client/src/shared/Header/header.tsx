@@ -12,7 +12,11 @@ import { useState } from "react";
 import { NAV_LINK } from "../constants";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+interface Props {
+  children?: React.ReactNode,
+}
+
+export default function Header({children}: Props) {
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
@@ -52,29 +56,19 @@ export default function Header() {
           >
             Sign up
           </Link>
-          <button className="button-login ">
-            <FontAwesomeIcon icon={faUser} />
-            <Link to={"/signin"} className="px-1 font-bold ">
-              Login
-            </Link>
-          </button>
-        </div>
-      ) : (
-        <div className="hidden md:flex justify-center items-center gap-2">
-          <Link
-            className="px-1 font-bold hover:text-gray-400/70 cursor-pointer"
-            to="/user-profile"
-          >
-            Profile
+          <Link to={"/signin"}>
+            <button className="button-login cursor-pointer">
+              <FontAwesomeIcon icon={faUser} />
+              <a  className="px-1 font-bold ">
+                Login
+              </a>
+            </button>
           </Link>
-          <button className="button-login ">
-            <FontAwesomeIcon icon={faUser} />
-            <Link to={"/"} className="px-1 font-bold ">
-              Logout
-            </Link>
-          </button>
         </div>
+      ) : ( 
+        children
       )}
+      
       {/* screen md */}
       <div className="md:hidden z-10" onClick={handleNav}>
         {nav ? (

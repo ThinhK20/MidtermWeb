@@ -14,6 +14,8 @@ import { useState } from "react";
 import { UserUpload } from "../../../models/user";
 import { updateUserApi } from "../../../apis/user-apis";
 import { toast } from "react-toastify";
+
+
 function InfoModal() {
    const [userBasicInfo, setUserBasicInfo] = useState<UserUpload>({
       fullName: "",
