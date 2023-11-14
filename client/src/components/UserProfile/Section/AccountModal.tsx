@@ -1,6 +1,3 @@
-import { faFacebook, faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons"
-import { faDatabase } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {useState} from "react"
 import { UserUpload } from "../../../models/user";
 import { updateUserApi } from "../../../apis/user-apis";
@@ -49,74 +46,76 @@ return (
                         }}>
                     Save
                 </button>
-      <div className="my-10">
-        <div className="regular-24"> Account Information </div>
-
-        <div className="flex justify-between items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
-          <div className="w-2/3 flex justify-between items-center">
-            User Name
-            <input
-              className="w-2/3 border-none outline-none"
-              value={localStorage.getItem("username")?.toString() || ""}
-            ></input>
-          </div>
-          <button className="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5">
-            Save
-          </button>
-        </div>
-
-        <div className=" items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
-          <form>
-            <div className="w-1/3">
-              <label className="" about="password">
-                Current Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
-                placeholder="Enter current password"
-                required
-              />
             </div>
-            <div className="flex w-full gap-4 mt-10">
-              <div className="w-1/3">
+        </div>
+        <div className="my-10">
+            <div className="regular-24"> Account Information </div>
+
+            <div className="flex justify-between items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
+            <div className="w-2/3 flex justify-between items-center">
+                User Name
+                <input
+                className="w-2/3 border-none outline-none"
+                value={localStorage.getItem("username")?.toString() || ""}
+                ></input>
+            </div>
+            <button className="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5">
+                Save
+            </button>
+            </div>
+
+            <div className=" items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
+            <form>
+                <div className="w-1/3">
                 <label className="" about="password">
-                  New Password
+                    Current Password
                 </label>
                 <input
-                  id="password"
-                  type="password"
-                  className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
-                  placeholder="Enter new password"
-                  required
+                    id="password"
+                    type="password"
+                    className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
+                    placeholder="Enter current password"
+                    required
                 />
-              </div>
-              <div className="w-1/3">
-                <label className="" about="password">
-                  Confirm Password
-                </label>
-                <input
-                  id="password"
-                  type="password"
-                  className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
-                  placeholder="Enter confirm password"
-                  required
-                />
-              </div>
-            </div>
+                </div>
+                <div className="flex w-full gap-4 mt-10">
+                <div className="w-1/3">
+                    <label className="" about="password">
+                    New Password
+                    </label>
+                    <input
+                    id="password"
+                    type="password"
+                    className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
+                    placeholder="Enter new password"
+                    required
+                    />
+                </div>
+                <div className="w-1/3">
+                    <label className="" about="password">
+                    Confirm Password
+                    </label>
+                    <input
+                    id="password"
+                    type="password"
+                    className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
+                    placeholder="Enter confirm password"
+                    required
+                    />
+                </div>
+                </div>
 
-            <div className="flex w-[100%] justify-end items-center">
-              <button
-                type="submit"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-slate-50 regular-16 rounded-lg text-sm w-full sm:w-auto px-5 py-5 text-center"
-              >
-                Change password
-              </button>
+                <div className="flex w-[100%] justify-end items-center">
+                <button
+                    type="submit"
+                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-slate-50 regular-16 rounded-lg text-sm w-full sm:w-auto px-5 py-5 text-center"
+                >
+                    Change password
+                </button>
+                </div>
+            </form>
             </div>
-          </form>
         </div>
-      </div>
 
       {/* Social Link */}
       <div className="my-10">
