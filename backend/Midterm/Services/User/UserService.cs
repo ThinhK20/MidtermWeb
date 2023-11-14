@@ -23,18 +23,23 @@ namespace Midterm.Services
 
         public async Task<bool> SignUp(UserUploadedDTO registerUser)
         {
-            Image avatar = await _imageRepository.UploadImageAsync(new ImageUploadedDTO
+            var avatarUrl = "";
+            if (registerUser.AvatarFile != null)
             {
-                Description = "",
-                File = registerUser.AvatarFile
-            });
+                Image avatar = await _imageRepository.UploadImageAsync(new ImageUploadedDTO
+                {
+                    Description = "",
+                    File = registerUser.AvatarFile
+                });
+                avatarUrl = avatar.Url;
+            }
             User user = new User
             {
                 Email = registerUser.Email,
                 Password = registerUser.Password,
                 Phone = registerUser.Phone,
                 Username = registerUser.Username,
-                Avatar = avatar.Url,
+                Avatar = avatarUrl,
             };
             // Insert more logic here.
             return await _userRepository.SignUp(user);
@@ -75,7 +80,7 @@ namespace Midterm.Services
             if (uploadUser.Email != null) user.Email = uploadUser.Email;
             if (uploadUser.Facebook != null) user.Facebook = uploadUser.Facebook;
             if (uploadUser.Phone != null) user.Phone = uploadUser.Phone;
-            if (uploadUser.Age > 0) user.Age = uploadUser.Age;
+            if (uploadUser.Age != null) user.Age = (int)uploadUser.Age;
 
             if (uploadUser.AvatarFile is not null)
             {

@@ -80,7 +80,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowOrigin");
+app.UseCors(options => options.SetIsOriginAllowed(origins => true).AllowAnyHeader().AllowAnyMethod());
 
 app.UseAuthentication();
 app.UseAuthorization();
