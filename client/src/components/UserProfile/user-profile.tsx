@@ -18,6 +18,7 @@ import Dashboard from "./Section/Dashboard";
 import InfoModal from "./Section/InfoModal";
 import AccountModal from "./Section/AccountModal";
 
+
 export default function UserProfile() {
   const [isDashBoardActive, setDashBoardActive] = useState(true);
   const [isBasicInfoActive, setBasicInfoActive] = useState(false);
