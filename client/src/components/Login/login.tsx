@@ -53,16 +53,16 @@ export default function Login() {
       });
   };
 
-  useEffect(() => {
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
+  // useEffect(() => {
+  //   localStorage.setItem("email", email);
+  //   localStorage.setItem("password", password);
 
-    //  console.log("email: " + localStorage.getItem("email"));
-    //  console.log("password: " + localStorage.getItem("password"));
-  }, [
-    email,
-    password,
-  ]); /* this will make sure that the useEffect hook runs only once */
+  //   //  console.log("email: " + localStorage.getItem("email"));
+  //   //  console.log("password: " + localStorage.getItem("password"));
+  // }, [
+  //   email,
+  //   password,
+  // ]); /* this will make sure that the useEffect hook runs only once */
 
   return (
     <>
