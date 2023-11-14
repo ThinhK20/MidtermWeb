@@ -1,6 +1,5 @@
 import React from "react";
 import { VIDEO } from "../../shared/constants";
-import SignUp from "../SignUp/signup";
 
 export default function Login() {
   const [email, setEmail] = React.useState("");
@@ -33,7 +32,7 @@ export default function Login() {
 
   return (
     <>
-      <section className="bg-black-50 dark:bg-gray-900">
+      <section className="bg-black-900 dark:bg-gray-900">
         <video
           className="w-full h-full object-cover transition ease-linear duration-700"
           src={VIDEO[0]}
@@ -41,7 +40,8 @@ export default function Login() {
           loop
           muted
           style={{
-            opacity: "0.5",
+            // make video dark
+            filter: "brightness(0.5)",
           }}
         />
         <div
@@ -62,18 +62,27 @@ export default function Login() {
               src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/logo.png"
               alt=""
               className="header-logo__img"
+              style={{
+                width: "250px",
+              }}
             />
           </a>
-          <div className="w-full bg-white rounded-lg shadow light:border md:mt-0 sm:max-w-md xl:p-0 light:bg-gray-800 light:border-gray-700">
+          <div
+            className=" bg-white rounded-lg shadow light:border md:mt-0 xl:p-0 light:bg-gray-800 light:border-gray-700 "
+            style={{
+              width: "400px",
+              height: "350px",
+            }}
+          >
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl light:text-black">
+              <h1 className="text-6xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-4xl light:text-black">
                 Sign in to your account
               </h1>
               <form className="space-y-4 md:space-y-6" action="#">
                 <div>
                   <label
                     htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 light:text-black"
+                    className="block mb-3 text-3xl font-medium text-gray-900 light:text-black"
                   >
                     Your email
                   </label>
@@ -81,7 +90,7 @@ export default function Login() {
                     type="email"
                     name="email"
                     id="email"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-black light:focus:ring-blue-500 light:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-3xl rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-black light:focus:ring-blue-500 light:focus:border-blue-500"
                     placeholder="name@company.com"
                     required={true}
                     onChange={(e) => {
@@ -93,7 +102,7 @@ export default function Login() {
                 <div>
                   <label
                     htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 light:text-black"
+                    className="block mb-3 text-3xl font-medium text-gray-900 light:text-black"
                   >
                     Password
                   </label>
@@ -102,7 +111,7 @@ export default function Login() {
                     name="password"
                     id="password"
                     placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-black light:focus:ring-blue-500 light:focus:border-blue-500"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-3xl rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-black light:focus:ring-blue-500 light:focus:border-blue-500"
                     required
                     onChange={(e) => {
                       setPassword(e.target.value);
@@ -139,7 +148,7 @@ export default function Login() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center light:bg-primary-600 light:hover:bg-primary-700 light:focus:ring-primary-800"
+                  className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-2xl px-5 py-2.5 text-center light:bg-primary-600 light:hover:bg-primary-700 light:focus:ring-primary-800"
                   style={{
                     background: "black",
                   }}
@@ -152,7 +161,7 @@ export default function Login() {
                   Sign in
                 </button>
               </form>
-              <p className="text-sm font-light text-gray-500 light:text-gray-400">
+              <p className="text-xl font-light text-gray-500 light:text-gray-400">
                 Don’t have an account yet?{" "}
                 <a
                   href="/signup"
