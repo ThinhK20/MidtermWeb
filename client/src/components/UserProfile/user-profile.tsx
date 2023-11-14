@@ -16,6 +16,7 @@ import { useState } from "react";
 import CoverImage from "./Section/CoverImage";
 import Dashboard from "./Section/Dashboard";
 import InfoModal from "./Section/InfoModal";
+import AccountModal from "./Section/AccountModal";
 
 export default function UserProfile() {
   const [isDashBoardActive, setDashBoardActive] = useState(true);
@@ -168,6 +169,7 @@ export default function UserProfile() {
 
             {isDashBoardActive && <Dashboard />}
             {isBasicInfoActive && <InfoModal />}
+            {isAcountActive && <AccountModal />}
 
             <div className="w-full mx-auto text-3xl ">
                <div className="md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200">
