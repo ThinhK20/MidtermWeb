@@ -312,6 +312,7 @@ function InfoModal() {
                         console.log(value);
                         toast.success(
                            "Upload Info Basic successfully!"
+
                         );
                      });
                   }}
