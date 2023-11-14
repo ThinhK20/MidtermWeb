@@ -57,8 +57,9 @@ export default function Login() {
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
 
-    //  console.log("email: " + localStorage.getItem("email"));
-    //  console.log("password: " + localStorage.getItem("password"));
+    console.log("email: " + localStorage.getItem("email"));
+    console.log("password: " + localStorage.getItem("password"));
+    console.log("IsLogin " + localStorage.getItem("isLogin"))
   }, [
     email,
     password,

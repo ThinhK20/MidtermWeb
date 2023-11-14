@@ -66,7 +66,22 @@ export default function Header({children}: Props) {
           </Link>
         </div>
       ) : ( 
-        children
+        <div className="hidden md:flex justify-center items-center gap-2">
+          <Link
+            className="px-1 font-bold hover:text-gray-400/70 cursor-pointer"
+            to="/user-profile"
+          >
+            Profile
+          </Link>
+          <button className="button-login " onClick={() => {
+            localStorage.setItem("isLogin", "false");
+          }}>
+            <FontAwesomeIcon icon={faUser} />
+            <Link to={"/"} className="px-1 font-bold ">
+              Logout
+            </Link>
+          </button>
+        </div> 
       )}
       
       {/* screen md */}

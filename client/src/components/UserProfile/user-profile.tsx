@@ -17,6 +17,7 @@ import CoverImage from "./Section/CoverImage";
 import Dashboard from "./Section/Dashboard";
 import InfoModal from "./Section/InfoModal";
 import AccountModal from "./Section/AccountModal";
+import Nav3Avatar from "./Section/Nav3Avatar";
 
 
 export default function UserProfile() {
@@ -32,7 +33,9 @@ export default function UserProfile() {
   return (
     <div className="relative">
       <div className="bg-slate-600 w-full h-full">
-        <Header />
+        <Header>
+          <Nav3Avatar avatar={'/src/assets/hhman-ava.png'}/>
+        </Header>
       </div>
 
       <div className="grid grid-cols-6 pt-32">
@@ -156,7 +159,7 @@ export default function UserProfile() {
         <div className="col-span-5 px-16 flex flex-col gap-16">
           <CoverImage
             coverImage={
-              localStorage.getItem("coverImage")?.toString() ||
+              localStorage.getItem("coverImage") ? localStorage.getItem("coverImage").toString():
               "/src/assets/maldives3.jpg"
             }
           />
