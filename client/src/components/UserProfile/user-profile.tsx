@@ -33,8 +33,10 @@ export default function UserProfile() {
   return (
     <div className="relative">
       <div className="bg-slate-600 w-full h-full">
-        <Header>
-          <Nav3Avatar avatar={'/src/assets/hhman-ava.png'}/>
+        <Header isLogin={true}>
+          <Nav3Avatar avatar={'/src/assets/hhman-ava.png'}
+                      userName={'Ainz Owl Gold'}
+          />
         </Header>
       </div>
 

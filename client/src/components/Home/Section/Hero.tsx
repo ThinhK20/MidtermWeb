@@ -47,10 +47,10 @@ function Hero() {
                 <h1 className='bold-44 sm:bold-64 capitalize'> Explore The World <br/> With US </h1>
                 <p className='regular-16 mt-4 lg:w-1/2'>We want to be on each of your journeys seeking the satisfaction of seeing the incorruptible beauty of nature. We can help you on an adventure around the world in just one app</p>
                 {/* <a href="" className='mt-2 text-black'>Read More</a> */}
-                <div className='mt-4'>
+                <div className='mt-4 cursor-pointer'>
                     <button className='rounded-full bg-white flex items-center justify-center gap-2 p-4'>
                         <FontAwesomeIcon icon={faLocationArrow} className='text-black'/>
-                        <label className='bold-16 text-black'> Travel Plan</label>
+                        <p className='bold-16 text-black'> Travel Plan </p>
                     </button>
                 </div>
                 <h4 className='text-white my-4 bold-20'>Explore the key</h4>
