@@ -19,23 +19,22 @@ import InfoModal from "./Section/InfoModal";
 import AccountModal from "./Section/AccountModal";
 import Nav3Avatar from "./Section/Nav3Avatar";
 
-
 export default function UserProfile() {
-   const [isDashBoardActive, setDashBoardActive] = useState(true);
-   const [isBasicInfoActive, setBasicInfoActive] = useState(false);
-   const [isAcountActive, setAcountActive] = useState(false);
-   const [isBillingActive, setBillingActive] = useState(false);
-   const [isSettingActive, setSettingActive] = useState(false);
-   const [isHelpActive, setHelpActive] = useState(false);
-   const [isLogOutActive, setLogOutActive] = useState(false);
-
+  const [isDashBoardActive, setDashBoardActive] = useState(true);
+  const [isBasicInfoActive, setBasicInfoActive] = useState(false);
+  const [isAcountActive, setAcountActive] = useState(false);
+  const [isBillingActive, setBillingActive] = useState(false);
+  const [isSettingActive, setSettingActive] = useState(false);
+  const [isHelpActive, setHelpActive] = useState(false);
+  const [isLogOutActive, setLogOutActive] = useState(false);
 
   return (
     <div className="relative">
       <div className="bg-slate-600 w-full h-full">
         <Header isLogin={true}>
-          <Nav3Avatar avatar={'/src/assets/hhman-ava.png'}
-                      userName={'Ainz Owl Gold'}
+          <Nav3Avatar
+            avatar={"/src/assets/hhman-ava.png"}
+            userName={"Ainz Owl Gold"}
           />
         </Header>
       </div>
@@ -44,8 +43,10 @@ export default function UserProfile() {
         <div className="col-span-1 flex flex-col">
           <SideBar
             avatar={"/src/assets/hhman-ava.png"}
-            user_name={"Ainz Own Goal"}
-            gmail={"hhman@hcmus.edu.vn"}
+            user_name={
+              localStorage.getItem("username")?.toString() || "Full Name"
+            }
+            gmail={localStorage.getItem("email")?.toString() || "Email"}
           >
             <SideBarItem
               icon={<FontAwesomeIcon icon={faChartLine} className="text-3xl" />}
@@ -165,9 +166,9 @@ export default function UserProfile() {
             }
           />
 
-               {isDashBoardActive && <Dashboard />}
-               {isBasicInfoActive && <InfoModal />}
-               {isAcountActive && <AccountModal emailUser={"hhman@student.hcmus"} />}
+          {isDashBoardActive && <Dashboard />}
+          {isBasicInfoActive && <InfoModal />}
+          {isAcountActive && <AccountModal emailUser={"hhman@student.hcmus"} />}
 
           <div className="w-full mx-auto text-3xl ">
             <div className="md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200">
