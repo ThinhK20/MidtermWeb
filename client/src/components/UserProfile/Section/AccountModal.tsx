@@ -31,11 +31,23 @@ return (
           <div className="w-2/3 flex justify-between items-center">
               Email
               <input
-              className="w-2/3 border-none outline-none"
-              value={localStorage.getItem("username")?.toString() || ""}
-              ></input>
+              type="text"
+              className="w-2/3 border-none outline-none placeholder-black placeholder:focus:text-gray-400"
+              placeholder={emailUser}
+              onChange={(e) => {
+                setAccountInfo({...AccountInfo, email:e.target.value,});
+              }}></input>
           </div>
-          <button className="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5">
+          <button className="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5"
+                  onClick={() => 
+                    updateUserApi(AccountInfo).then(() => {
+                      toast.success(
+                        "Upload Email successfully!"
+                    );}).catch(() => {
+                      toast.error("Email Upload Failed!");
+                    })
+                  }
+          >
               Save
           </button>
           </div>
