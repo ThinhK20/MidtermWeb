@@ -3,6 +3,7 @@ import { VIDEO } from "../../shared/constants";
 import Footer from "../../shared/Footer/footer";
 import Header from "../../shared/Header/header";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [email, setEmail] = React.useState("");
@@ -14,6 +15,7 @@ export default function Login() {
   const handleSignUp = () => {
     if (!email.toString().includes("@")) {
       setError("Invalid email");
+      toast.error("Invalid email");
       return false;
     }
     return true;
@@ -29,18 +31,34 @@ export default function Login() {
         },
         body: JSON.stringify({ email, password }),
       })
-      const res = response.json();
-
-      console.log(res);
-      // dieu kien
-      navigate('/user-profile');
-      localStorage.setItem("isLogin", "true");
-    }
-    catch (err) {
+        .then((res) => {
+          localStorage.setItem("isLogin", "true");
+          navigate("/user-profile");
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          localStorage.setItem("isLogin", "true");
+          localStorage.setItem("userId", data.userId);
+          localStorage.setItem("username", data.username);
+          localStorage.setItem("password", data.password);
+          localStorage.setItem("location", data.location);
+          localStorage.setItem("age", data.age);
+          localStorage.setItem("gender", data.gender);
+          localStorage.setItem("email", data.email);
+          localStorage.setItem("fullName", data.fullName);
+          localStorage.setItem("facebook", data.facebook);
+          localStorage.setItem("phone", data.phone);
+          localStorage.setItem("avatar", data.avatar);
+          localStorage.setItem("coverImage", data.coverImage);
+          localStorage.setItem("about", data.about);
+          localStorage.setItem("accessToken", data.accessToken);
+          localStorage.setItem("refreshToken", data.refreshToken);
+        });
+    } catch (err) {
       console.log(err);
       localStorage.setItem("isLogin", "false");
     }
-
   };
 
   return (

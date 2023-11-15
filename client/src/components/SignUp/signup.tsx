@@ -3,6 +3,7 @@ import { VIDEO } from "../../shared/constants";
 import Header from "../../shared/Header/header";
 import Footer from "../../shared/Footer/footer";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function SignUp() {
   const [email, setEmail] = React.useState("");
@@ -14,7 +15,8 @@ export default function SignUp() {
 
   const handleSignUp = () => {
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setError("Passwords does not match");
+      toast.error("Passwords does not match");
       return false;
     }
     return true;
@@ -30,13 +32,13 @@ export default function SignUp() {
       body: formData,
     })
       .then((res) => {
+        navigate("/signin");
         return res.json();
       })
       .then((data) => {
         console.log(data);
         localStorage.setItem("email", email);
         localStorage.setItem("password", password);
-        navigate("/signin");
       })
       .catch((err) => {
         console.log(err);
