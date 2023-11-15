@@ -12,6 +12,7 @@ namespace Midterm.Repositories
         #region hhman
         public Task<User?> getSingleUserAsync(Guid id);
         public Task<bool> deleteSingleUserAsync(Guid id);
+        public Task<bool> deletePassWordUserAsync(Guid id, string currentPass, string newPass);
         public Task<bool> updateInfoUserAsync(User? currentUser);
         #endregion
 

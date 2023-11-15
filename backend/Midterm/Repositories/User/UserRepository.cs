@@ -92,6 +92,26 @@ namespace Midterm.Repositories
                 throw new Exception(err.Message);
             }
         }
+        public async Task<bool> deletePassWordUserAsync(Guid id, string currentPass, string newPass)
+        {
+            try {
+                var user = await getSingleUserAsync(id);
+
+                if (user == null) throw new Exception("User doesn't exist.");
+                
+                if(!BCrypt.Net.BCrypt.Verify(currentPass, user.Password)) return false;
+
+                user.Password = BCrypt.Net.BCrypt.HashPassword(newPass);
+
+                await _dbContext.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception err) { 
+                
+                throw new Exception(err.Message);
+            }
+        }
         //end
     }
 }
