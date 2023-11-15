@@ -36,7 +36,7 @@ export default function SignUp() {
         localStorage.setItem("isLogin", "true");
         localStorage.setItem("email", email);
         localStorage.setItem("password", password);
-        navigate("/user-profile");
+        navigate("/signin");
       })
       .catch((err) => {
         toast.error("Sign up failed");
