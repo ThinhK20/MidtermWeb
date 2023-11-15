@@ -34,7 +34,7 @@ function InfoModal() {
     phone: localStorage.getItem("phone") || "",
     age: Number(localStorage.getItem("age")) || 0,
     gender: "Male",
-    about: "",
+    about: localStorage.getItem("about")?.toString() || "",
   });
 
   return (
@@ -48,15 +48,15 @@ function InfoModal() {
               type="FullName"
               name="floating_FullName"
               id="floating_FullName"
-              className="block py-2.5 px-0 my-1 w-full regular-16 text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer placeholder-black placeholder:focus:text-gray-400"
+              className="block py-2.5 px-0 my-1 w-full regular-16 text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               value={userBasicInfo.fullName}
-              // readOnly={!isEdit}
+              readOnly={!isEdit}
               required
               onChange={(e) => {
-                setUserBasicInfo({
-                  ...userBasicInfo,
-                  fullName: e.target.value,
-                });
+                  setUserBasicInfo({
+                    ...userBasicInfo,
+                    fullName: e.target.value,
+                  });
               }}
             />
             <label
@@ -66,7 +66,7 @@ function InfoModal() {
               <FontAwesomeIcon icon={faIdCard} className="pr-3" />
               Full name
             </label>
-          </div>
+            </div>
 
           {/* User Name + facebook*/}
           <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-12">
@@ -219,7 +219,7 @@ function InfoModal() {
                 name="floating_age"
                 id="floating_age"
                 value={userBasicInfo.age}
-                readOnly={!isEdit}
+                disabled={!isEdit}
                 onChange={(e) =>
                   setUserBasicInfo({
                     ...userBasicInfo,
@@ -227,7 +227,6 @@ function InfoModal() {
                   })
                 }
                 className="block py-2.5 px-0 w-full regular-16 text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                placeholder=" "
                 required
               />
 

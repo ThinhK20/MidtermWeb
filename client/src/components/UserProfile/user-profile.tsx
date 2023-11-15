@@ -57,7 +57,7 @@ export default function UserProfile() {
             user_name={
               localStorage.getItem("username")?.toString() || ""
             }
-            gmail={localStorage.getItem("email")?.toString() || "Email"}
+            gmail={localStorage.getItem("email")?.toString() || ""}
           >
             <SideBarItem
               icon={<FontAwesomeIcon icon={faChartLine} className="text-3xl" />}
