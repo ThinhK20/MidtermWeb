@@ -21,44 +21,43 @@ export default function Login() {
     return true;
   };
 
-  const sendRequest = async () => {
-    try {
-      const url = "https://localhost:44320/api/user/login";
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
+  const sendRequest = () => {
+    const url = "https://localhost:44320/api/user/login";
+    const formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("isLogin", "true");
+        localStorage.setItem("user", JSON.stringify(res));
+        console.log(localStorage.getItem("user"));
+        const data = JSON.parse(localStorage.getItem("user") || "{}");
+        localStorage.setItem("userId", data.userId);
+        localStorage.setItem("username", data.username);
+        localStorage.setItem("password", data.password);
+        localStorage.setItem("location", data.location);
+        localStorage.setItem("age", data.age);
+        localStorage.setItem("gender", data.gender);
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("fullName", data.fullName);
+        localStorage.setItem("facebook", data.facebook);
+        localStorage.setItem("phone", data.phone);
+        localStorage.setItem("avatar", data.avatar);
+        localStorage.setItem("coverImage", data.coverImage);
+        localStorage.setItem("about", data.about);
+        localStorage.setItem("accessToken", data.accessToken);
+        localStorage.setItem("refreshToken", data.refreshToken);
+        navigate("/user-profile");
       })
-        .then((res) => {
-          localStorage.setItem("isLogin", "true");
-          navigate("/user-profile");
-          return res.json();
-        })
-        .then((data) => {
-          console.log(data);
-          localStorage.setItem("isLogin", "true");
-          localStorage.setItem("userId", data.userId);
-          localStorage.setItem("username", data.username);
-          localStorage.setItem("password", data.password);
-          localStorage.setItem("location", data.location);
-          localStorage.setItem("age", data.age);
-          localStorage.setItem("gender", data.gender);
-          localStorage.setItem("email", data.email);
-          localStorage.setItem("fullName", data.fullName);
-          localStorage.setItem("facebook", data.facebook);
-          localStorage.setItem("phone", data.phone);
-          localStorage.setItem("avatar", data.avatar);
-          localStorage.setItem("coverImage", data.coverImage);
-          localStorage.setItem("about", data.about);
-          localStorage.setItem("accessToken", data.accessToken);
-          localStorage.setItem("refreshToken", data.refreshToken);
-        });
-    } catch (err) {
-      console.log(err);
-      localStorage.setItem("isLogin", "false");
-    }
+      .catch((err) => {
+        console.log(err);
+        localStorage.setItem("isLogin", "false");
+      });
   };
 
   return (

@@ -33,8 +33,15 @@ export default function UserProfile() {
       <div className="bg-slate-600 w-full h-full">
         <Header isLogin={true}>
           <Nav3Avatar
-            avatar={"/src/assets/hhman-ava.png"}
-            userName={"Ainz Owl Gold"}
+            avatar={
+              localStorage.getItem("avatar")?.toString() ||
+              "/src/assets/hhman-ava.png"
+            }
+            userName={
+              localStorage.getItem("fullName")?.toString() === undefined
+                ? "Full Name"
+                : localStorage.getItem("fullName")?.toString()
+            }
           />
         </Header>
       </div>
@@ -42,7 +49,10 @@ export default function UserProfile() {
       <div className="grid grid-cols-6 pt-32">
         <div className="col-span-1 flex flex-col">
           <SideBar
-            avatar={"/src/assets/hhman-ava.png"}
+            avatar={
+              localStorage.getItem("avatar")?.toString() ||
+              "/src/assets/hhman-ava.png"
+            }
             user_name={
               localStorage.getItem("username")?.toString() || "Full Name"
             }
@@ -160,15 +170,13 @@ export default function UserProfile() {
         </div>
 
         <div className="col-span-5 px-16 flex flex-col gap-16">
-          <CoverImage
-            coverImage={
-              "/src/assets/maldives3.jpg"
-            }
-          />
+          <CoverImage coverImage={"/src/assets/maldives3.jpg"} />
 
           {isDashBoardActive && <Dashboard />}
           {isBasicInfoActive && <InfoModal />}
-          {isAcountActive && <AccountModal emailUser={"hhman@student.hcmus"} />}
+          {isAcountActive && (
+            <AccountModal emailUser={localStorage.getItem("email") || ""} />
+          )}
 
           <div className="w-full mx-auto text-3xl ">
             <div className="md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200">
