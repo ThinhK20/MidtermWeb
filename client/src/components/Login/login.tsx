@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { VIDEO } from "../../shared/constants";
 import Footer from "../../shared/Footer/footer";
 import Header from "../../shared/Header/header";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [, setError] = React.useState("");
+
+  const navigate = useNavigate();
 
   const handleSignUp = () => {
     if (!email.toString().includes("@")) {
@@ -16,54 +19,29 @@ export default function Login() {
     return true;
   };
 
-  const sendRequest = () => {
-    const url = "https://localhost:44320/api/user/login";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((res) => {
-        return res.json();
+  const sendRequest = async () => {
+    try {
+      const url = "https://localhost:44320/api/user/login";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
       })
-      .then((data) => {
-        console.log(data);
-        localStorage.setItem("isLogin", "true");
-        localStorage.setItem("userId", data.userId);
-        localStorage.setItem("username", data.username);
-        localStorage.setItem("password", data.password);
-        localStorage.setItem("location", data.location);
-        localStorage.setItem("age", data.age);
-        localStorage.setItem("gender", data.gender);
-        localStorage.setItem("email", data.email);
-        localStorage.setItem("fullName", data.fullName);
-        localStorage.setItem("facebook", data.facebook);
-        localStorage.setItem("phone", data.phone);
-        localStorage.setItem("avatar", data.avatar);
-        localStorage.setItem("coverImage", data.coverImage);
-        localStorage.setItem("about", data.about);
-        localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("refreshToken", data.refreshToken);
-      })
-      .catch((err) => {
-        console.log(err);
-        localStorage.setItem("isLogin", "false");
-      });
+      const res = response.json();
+
+      console.log(res);
+      // dieu kien
+      navigate('/user-profile');
+      localStorage.setItem("isLogin", "true");
+    }
+    catch (err) {
+      console.log(err);
+      localStorage.setItem("isLogin", "false");
+    }
+
   };
-
-  // useEffect(() => {
-  //   localStorage.setItem("email", email);
-  //   localStorage.setItem("password", password);
-
-  //   console.log("email: " + localStorage.getItem("email"));
-  //   console.log("password: " + localStorage.getItem("password"));
-    console.log("IsLogin " + localStorage.getItem("isLogin"))
-  // }, [
-  //   email,
-  //   password,
-  // ]); /* this will make sure that the useEffect hook runs only once */
 
   return (
     <>
@@ -184,7 +162,7 @@ export default function Login() {
                   </a> */}
                   </div>
                   <button
-                    type="submit"
+                    type="button"
                     className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-2xl px-5 py-2.5 text-center light:bg-primary-600 light:hover:bg-primary-700 light:focus:ring-primary-800"
                     style={{
                       background: "black",
