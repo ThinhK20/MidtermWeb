@@ -178,6 +178,7 @@ export default function UserProfile() {
             <AccountModal emailUser={localStorage.getItem("email") || ""} />
           )}
 
+          {/* Footer */}
           <div className="w-full mx-auto text-3xl ">
             <div className="md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200">
               {/* Social links */}

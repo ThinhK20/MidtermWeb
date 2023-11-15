@@ -31,14 +31,8 @@ export default function SignUp() {
       method: "POST",
       body: formData,
     })
-      .then((res) => {
+      .then(() => {
         navigate("/signin");
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        localStorage.setItem("email", email);
-        localStorage.setItem("password", password);
       })
       .catch((err) => {
         console.log(err);

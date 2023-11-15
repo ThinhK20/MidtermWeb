@@ -53,7 +53,13 @@ function Nav3Avatar({avatar, userName,variant}: Props) {
                         </button>
                     </Link>
                     <Link to={'/'} className="w-full">
-                        <button className="w-full regular-14 text-black transition-colors duration-300 transform  hover:bg-gray-100 border-none flex justify-start items-center gap-4">
+                        <button className="w-full regular-14 text-black transition-colors duration-300 transform  hover:bg-gray-100 border-none flex justify-start items-center gap-4"
+                                onClick={() => {
+                                    localStorage.clear();
+                                    console.log("Log out here");
+                                    console.log(localStorage.getItem("userId"));
+                                }}
+                        >
                             <FontAwesomeIcon icon={faArrowRightFromBracket}  />
                             <span className="regular-14">Log out</span>
                         </button>

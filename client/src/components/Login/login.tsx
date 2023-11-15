@@ -32,11 +32,15 @@ export default function Login() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         localStorage.setItem("isLogin", "true");
-        localStorage.setItem("user", JSON.stringify(res));
-        console.log(localStorage.getItem("user"));
-        const data = JSON.parse(localStorage.getItem("user") || "{}");
+        // localStorage.setItem("user", JSON.stringify(res));
+        // console.log(localStorage.getItem("user"));
+        // const data = JSON.parse(localStorage.getItem("user") || "{}");
+        const dataJasonString = JSON.stringify(res);
+        const data = JSON.parse(dataJasonString);
+        console.log(data);
+        
         localStorage.setItem("userId", data.userId);
         localStorage.setItem("username", data.username);
         localStorage.setItem("password", data.password);

@@ -61,7 +61,6 @@ function AccountModal({ emailUser }: AccountInfoProps) {
                 Current Password
               </label>
               <input
-                id="password"
                 type="password"
                 className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
                 placeholder="Enter current password"
@@ -74,7 +73,6 @@ function AccountModal({ emailUser }: AccountInfoProps) {
                   New Password
                 </label>
                 <input
-                  id="password"
                   type="password"
                   className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
                   placeholder="Enter new password"
@@ -86,7 +84,6 @@ function AccountModal({ emailUser }: AccountInfoProps) {
                   Confirm Password
                 </label>
                 <input
-                  id="password"
                   type="password"
                   className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
                   placeholder="Enter confirm password"
