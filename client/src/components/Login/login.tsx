@@ -44,7 +44,8 @@ export default function Login() {
         localStorage.setItem("age", data.age ? data.age : "");
         localStorage.setItem("gender", data.gender);
         localStorage.setItem("email", data.email ? data.email : "");
-        localStorage.setItem("fullName", data.fullName ? data.fullName : "");
+        console.log(data.fulllName);
+        localStorage.setItem("fullName", data.fulllName ? data.fulllName : "");
         localStorage.setItem("facebook", data.facebook ? data.facebook : "");
         localStorage.setItem("phone", data.phone ? data.phone : "");
         localStorage.setItem("avatar", data.avatar ? data.avatar : "");

@@ -23,10 +23,7 @@ function InfoModal() {
   const [isEdit, setEdit] = useState(false);
 
   const [userBasicInfo, setUserBasicInfo] = useState<UserUpload>({
-    fullName:
-      localStorage.getItem("fullName") === null || undefined
-        ? ""
-        : localStorage.getItem("fullName")?.toString(),
+    fullName: localStorage.getItem("fullName")?.toString() || "",
     username: localStorage.getItem("username")?.toString() || "",
     facebook: localStorage.getItem("facebook")?.toString() || "",
     location: localStorage.getItem("location")?.toString() || "",
