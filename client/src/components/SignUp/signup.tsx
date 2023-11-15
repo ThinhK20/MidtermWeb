@@ -32,9 +32,15 @@ export default function SignUp() {
       body: formData,
     })
       .then(() => {
-        navigate("/signin");
+        toast.success("Sign up successfully");
+        localStorage.setItem("isLogin", "true");
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+        navigate("/user-profile");
       })
       .catch((err) => {
+        toast.error("Sign up failed");
+        localStorage.setItem("isLogin", "false");
         console.log(err);
       });
   }

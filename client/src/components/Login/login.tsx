@@ -32,30 +32,35 @@ export default function Login() {
     })
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         localStorage.setItem("isLogin", "true");
-        // localStorage.setItem("user", JSON.stringify(res));
-        // console.log(localStorage.getItem("user"));
-        // const data = JSON.parse(localStorage.getItem("user") || "{}");
-        const dataJasonString = JSON.stringify(res);
-        const data = JSON.parse(dataJasonString);
-        console.log(data);
-        
-        localStorage.setItem("userId", data.userId);
-        localStorage.setItem("username", data.username);
-        localStorage.setItem("password", data.password);
-        localStorage.setItem("location", data.location);
-        localStorage.setItem("age", data.age);
+        localStorage.setItem("user", JSON.stringify(res));
+        console.log(localStorage.getItem("user"));
+        const data = JSON.parse(localStorage.getItem("user") || "{}");
+        localStorage.setItem("userId", data.userId ? data.userId : "");
+        localStorage.setItem("username", data.username ? data.username : "");
+        localStorage.setItem("password", data.password ? data.password : "");
+        localStorage.setItem("location", data.location ? data.location : "");
+        localStorage.setItem("age", data.age ? data.age : "");
         localStorage.setItem("gender", data.gender);
-        localStorage.setItem("email", data.email);
-        localStorage.setItem("fullName", data.fullName);
-        localStorage.setItem("facebook", data.facebook);
-        localStorage.setItem("phone", data.phone);
-        localStorage.setItem("avatar", data.avatar);
-        localStorage.setItem("coverImage", data.coverImage);
-        localStorage.setItem("about", data.about);
-        localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("refreshToken", data.refreshToken);
+        localStorage.setItem("email", data.email ? data.email : "");
+        localStorage.setItem("fullName", data.fullName ? data.fullName : "");
+        localStorage.setItem("facebook", data.facebook ? data.facebook : "");
+        localStorage.setItem("phone", data.phone ? data.phone : "");
+        localStorage.setItem("avatar", data.avatar ? data.avatar : "");
+        localStorage.setItem(
+          "coverImage",
+          data.coverImage ? data.coverImage : ""
+        );
+        localStorage.setItem("about", data.about ? data.about : "");
+        localStorage.setItem(
+          "accessToken",
+          data.accessToken ? data.accessToken : ""
+        );
+        localStorage.setItem(
+          "refreshToken",
+          data.refreshToken ? data.refreshToken : ""
+        );
         navigate("/user-profile");
       })
       .catch((err) => {
