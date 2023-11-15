@@ -2,8 +2,12 @@
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { UserUpload } from "../../../../models/user";
-import { updateUserApi } from "../../../../apis/user-apis";
+import {
+   fetchUserApiByStorage,
+   updateUserApi,
+} from "../../../../apis/user-apis";
 import { toast } from "react-toastify";
+import { forceUpdate } from "../../../../utils";
 
 interface SideBarProps {
    avatar: string;
@@ -24,7 +28,7 @@ function SideBar({ avatar, user_name, gmail, children }: SideBarProps) {
                         alt="avatar"
                         className="w-52 h-48 mx-2 rounded-xl ring-4 ring-slate-400 "
                      />
-                     <button className="absolute bottom-1 top-0 left-1/2 text-3xl -translate-x-1/2 bg-transparent border-none scale-0 group-hover:scale-100 transition-all duration-700 hover:text-gray-400" >
+                     <button className="absolute bottom-1 top-0 left-1/2 text-3xl -translate-x-1/2 bg-transparent border-none scale-0 group-hover:scale-100 transition-all duration-700 hover:text-gray-400">
                         <label
                            htmlFor="uploadAvatar"
                            className="cursor-pointer mx-2"
@@ -52,6 +56,8 @@ function SideBar({ avatar, user_name, gmail, children }: SideBarProps) {
                                     toast.success(
                                        "Upload avatar successfully !"
                                     );
+                                    fetchUserApiByStorage();
+                                    forceUpdate();
                                  });
                               }
                            }}
