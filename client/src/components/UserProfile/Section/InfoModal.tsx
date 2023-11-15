@@ -1,4 +1,7 @@
-import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebookSquare
+} from "@fortawesome/free-brands-svg-icons";
+
 import {
   faCalendarDay,
   faEarthAsia,
@@ -22,13 +25,13 @@ function InfoModal() {
   const [userBasicInfo, setUserBasicInfo] = useState<UserUpload>({
     fullName:
       localStorage.getItem("fullName") === null || undefined
-        ? "Full Name"
+        ? ""
         : localStorage.getItem("fullName")?.toString(),
-    username: localStorage.getItem("username")?.toString() || "User Name",
+    username: localStorage.getItem("username")?.toString() || "",
     facebook: localStorage.getItem("facebook")?.toString() || "",
     location: localStorage.getItem("location")?.toString() || "",
     country: localStorage.getItem("country")?.toString() || "Viet Nam",
-    phone: localStorage.getItem("phone") || "123-456-7890",
+    phone: localStorage.getItem("phone") || "",
     age: Number(localStorage.getItem("age")) || 0,
     gender: "Male",
     about: "",
@@ -47,7 +50,7 @@ function InfoModal() {
               id="floating_FullName"
               className="block py-2.5 px-0 my-1 w-full regular-16 text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer placeholder-black placeholder:focus:text-gray-400"
               value={userBasicInfo.fullName}
-              readOnly={!isEdit}
+              // readOnly={!isEdit}
               required
               onChange={(e) => {
                 setUserBasicInfo({

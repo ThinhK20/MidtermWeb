@@ -18,6 +18,7 @@ import Dashboard from "./Section/Dashboard";
 import InfoModal from "./Section/InfoModal";
 import AccountModal from "./Section/AccountModal";
 import Nav3Avatar from "./Section/Nav3Avatar";
+import { DEFAULT_IMAGE } from "../../shared/constants";
 
 export default function UserProfile() {
   const [isDashBoardActive, setDashBoardActive] = useState(true);
@@ -35,12 +36,12 @@ export default function UserProfile() {
           <Nav3Avatar
             avatar={
               localStorage.getItem("avatar")?.toString() ||
-              "/src/assets/hhman-ava.png"
+              DEFAULT_IMAGE[0]
             }
             userName={
-              localStorage.getItem("fullName")?.toString() === undefined
-                ? "Full Name"
-                : localStorage.getItem("fullName")?.toString()
+              localStorage.getItem("email")?.toString() === undefined
+                ? ""
+                : localStorage.getItem("email")?.toString()
             }
           />
         </Header>
@@ -51,10 +52,10 @@ export default function UserProfile() {
           <SideBar
             avatar={
               localStorage.getItem("avatar")?.toString() ||
-              "/src/assets/hhman-ava.png"
+              DEFAULT_IMAGE[0]
             }
             user_name={
-              localStorage.getItem("username")?.toString() || "Full Name"
+              localStorage.getItem("username")?.toString() || ""
             }
             gmail={localStorage.getItem("email")?.toString() || "Email"}
           >
@@ -170,7 +171,7 @@ export default function UserProfile() {
         </div>
 
         <div className="col-span-5 px-16 flex flex-col gap-16">
-          <CoverImage coverImage={"/src/assets/maldives3.jpg"} />
+          <CoverImage coverImage={localStorage.getItem("coverImage")?.toString() || DEFAULT_IMAGE[1]} />
 
           {isDashBoardActive && <Dashboard />}
           {isBasicInfoActive && <InfoModal />}
