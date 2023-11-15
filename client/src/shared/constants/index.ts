@@ -148,3 +148,8 @@ export const TESTIMONIAL = [
       des: "Fantastic description, knowleadgeable guides, seameless logistics. Highly recommded",
    },
 ];
+
+export const DEFAULT_IMAGE = [
+   "/src/assets/testimonial-02.jpg",
+   "/src/assets/maldives3.jpg"
+]

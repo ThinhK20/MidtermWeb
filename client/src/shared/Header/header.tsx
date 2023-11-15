@@ -12,7 +12,12 @@ import { useState } from "react";
 import { NAV_LINK } from "../constants";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+interface Props {
+  children?: React.ReactNode,
+  isLogin?: boolean;
+}
+
+export default function Header({children, isLogin}: Props) {
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
@@ -22,10 +27,12 @@ export default function Header() {
   return (
     <div
       style={{ position: "fixed", left: 0, top: 0 }}
-      className="flex w-full bg-[rgba(0,0,0,0.6)] shadow-xl justify-between items-center h-20 px-4 text-2xl absolute z-10 text-white"
+      className="flex w-full bg-[rgba(0,0,0,0.6)] shadow-xl justify-between items-center h-20 px-6 text-2xl absolute z-10 text-white "
     >
       <div>
-        <h1 className="block">TRAVEL. </h1>
+        <Link to={'/'} className="cursor-pointer">
+          <h1 className="block">TRAVEL. </h1>
+        </Link>
       </div>
 
       {/* Middle navigation */}
@@ -44,7 +51,7 @@ export default function Header() {
       </ul>
 
       {/* End */}
-      {localStorage.getItem("isLogin") != "true" ? (
+      {!isLogin ? (
         <div className="hidden md:flex justify-center items-center gap-2">
           <Link
             className="px-1 font-bold hover:text-gray-400/70 cursor-pointer"
@@ -52,37 +59,27 @@ export default function Header() {
           >
             Sign up
           </Link>
-          <button className="button-login ">
-            <FontAwesomeIcon icon={faUser} />
-            <Link to={"/signin"} className="px-1 font-bold ">
-              Login
-            </Link>
-          </button>
-        </div>
-      ) : (
-        <div className="hidden md:flex justify-center items-center gap-2">
-          <Link
-            className="px-1 font-bold hover:text-gray-400/70 cursor-pointer"
-            to="/user-profile"
-          >
-            Profile
+          <Link to={"/signin"}>
+            <button className="button-login cursor-pointer">
+              <FontAwesomeIcon icon={faUser} />
+              <a  className="px-1 font-bold ">
+                Login
+              </a>
+            </button>
           </Link>
-          <button className="button-login ">
-            <FontAwesomeIcon icon={faUser} />
-            <Link to={"/"} className="px-1 font-bold ">
-              Logout
-            </Link>
-          </button>
         </div>
+      ) : ( 
+        children
       )}
+      
       {/* screen md */}
-      <div className="md:hidden z-10" onClick={handleNav}>
+      { !isLogin && <div className="md:hidden z-10" onClick={handleNav}>
         {nav ? (
           <FontAwesomeIcon icon={faClose} size="2xl" className="text-black" />
         ) : (
           <FontAwesomeIcon icon={faGripLines} size="2xl" />
         )}
-      </div>
+      </div>}
       {/* moblie menu drowdown here  */}
       <div
         className={

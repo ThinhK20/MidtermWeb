@@ -1,4 +1,4 @@
-import {useState} from "react"
+import { useState } from "react";
 import { UserUpload } from "../../../models/user";
 import { updateUserApi } from "../../../apis/user-apis";
 import { toast } from "react-toastify";
@@ -9,113 +9,100 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";        
-        
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 interface AccountInfoProps {
-    emailUser?: string
+  emailUser?: string;
 }
 
-function AccountModal({emailUser}: AccountInfoProps) {
-    const [AccountInfo, setAccountInfo] = useState<UserUpload>({
-        email: "",
-    });
-    
-return (
-    <div className="w-[100%] h-auto padding-container py-20 shadow-md bg-white hover:shadow-xl rounded-3xl">
-        <div className="my-10">
-            <div className="regular-24"> Account Information </div>
+function AccountModal({ emailUser }: AccountInfoProps) {
+  const [AccountInfo, setAccountInfo] = useState<UserUpload>({
+    email: localStorage.getItem("email") || "",
+  });
 
-            <div className="flex justify-between items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
-                <div className="w-2/3 flex justify-between items-center">
-                    Email
-                    <input  className="w-2/3 border-none outline-none" 
-                            onChange={(e) => setAccountInfo({
-                                ...AccountInfo,
-                                email: e.target.value,
-                            })}/>
-                </div>
-                <button className="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5"
-                        type="button"
-                        onClick={() => {
-                            updateUserApi(AccountInfo).then((value) => {
-                                console.log(value);
-                                toast.success(
-                                    "Upload Info Basic successfully!"
-                                );
-                            });
-                        }}>
-                    Save
-                </button>
-            </div>
+  return (
+    <div className="w-[100%] h-auto padding-container pt-5 shadow-md bg-white hover:shadow-xl rounded-3xl">
+      {/* Account Info */}
+      <div className="my-10">
+        <div className="regular-24"> Account Information </div>
+
+        <div className="flex justify-between items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
+          <div className="w-2/3 flex justify-between items-center">
+            Email
+            <input
+              type="text"
+              className="w-2/3 border-none outline-none placeholder-black placeholder:focus:text-gray-400"
+              placeholder={emailUser}
+              onChange={(e) => {
+                setAccountInfo({ ...AccountInfo, email: e.target.value });
+              }}
+            ></input>
+          </div>
+          <button
+            className="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5"
+            onClick={() =>
+              updateUserApi(AccountInfo)
+                .then(() => {
+                  toast.success("Upload Email successfully!");
+                })
+                .catch(() => {
+                  toast.error("Email Upload Failed!");
+                })
+            }
+          >
+            Save
+          </button>
         </div>
-        <div className="my-10">
-            <div className="regular-24"> Account Information </div>
 
-            <div className="flex justify-between items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
-            <div className="w-2/3 flex justify-between items-center">
-                User Name
-                <input
-                className="w-2/3 border-none outline-none"
-                value={localStorage.getItem("username")?.toString() || ""}
-                ></input>
+        <div className=" items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
+          <form>
+            <div className="w-1/3">
+              <label className="" about="password">
+                Current Password
+              </label>
+              <input
+                type="password"
+                className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
+                placeholder="Enter current password"
+                required
+              />
             </div>
-            <button className="text-white bg-blue-700 hover:bg-blue-800 rounded-lg px-5 py-2.5">
-                Save
-            </button>
-            </div>
-
-            <div className=" items-center py-2 mt-5 w-full regular-16 bg-transparent border-0 border-b-2 border-gray-300">
-            <form>
-                <div className="w-1/3">
+            <div className="flex w-full gap-4 mt-10">
+              <div className="w-1/3">
                 <label className="" about="password">
-                    Current Password
+                  New Password
                 </label>
                 <input
-                    id="password"
-                    type="password"
-                    className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
-                    placeholder="Enter current password"
-                    required
+                  type="password"
+                  className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
+                  placeholder="Enter new password"
+                  required
                 />
-                </div>
-                <div className="flex w-full gap-4 mt-10">
-                <div className="w-1/3">
-                    <label className="" about="password">
-                    New Password
-                    </label>
-                    <input
-                    id="password"
-                    type="password"
-                    className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
-                    placeholder="Enter new password"
-                    required
-                    />
-                </div>
-                <div className="w-1/3">
-                    <label className="" about="password">
-                    Confirm Password
-                    </label>
-                    <input
-                    id="password"
-                    type="password"
-                    className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
-                    placeholder="Enter confirm password"
-                    required
-                    />
-                </div>
-                </div>
-
-                <div className="flex w-[100%] justify-end items-center">
-                <button
-                    type="submit"
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-slate-50 regular-16 rounded-lg text-sm w-full sm:w-auto px-5 py-5 text-center"
-                >
-                    Change password
-                </button>
-                </div>
-            </form>
+              </div>
+              <div className="w-1/3">
+                <label className="" about="password">
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  className="w-full px-4 py-2 mt-2 bg-white border-1 ring-1 ring-black/50 border-gray-200 rounded-md shadow-md hover:ring-black"
+                  placeholder="Enter confirm password"
+                  required
+                />
+              </div>
             </div>
+
+            <div className="flex w-[100%] justify-end items-center">
+              <button
+                type="submit"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-slate-50 regular-16 rounded-lg text-sm w-full sm:w-auto px-5 py-5 text-center"
+              >
+                Change password
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
 
       {/* Social Link */}
       <div className="my-10">
@@ -228,6 +215,16 @@ return (
             </span>
           </div>
         </div>
+      </div>
+
+      {/* Button delete */}
+      <div className="flex w-[100%] justify-end items-center my-20">
+        <button
+          type="submit"
+          className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-slate-50 regular-16 rounded-lg text-sm w-full sm:w-auto px-5 py-5 text-center"
+        >
+          Delete Account
+        </button>
       </div>
     </div>
   );

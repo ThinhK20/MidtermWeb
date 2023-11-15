@@ -2,6 +2,8 @@ import React from "react";
 import { VIDEO } from "../../shared/constants";
 import Header from "../../shared/Header/header";
 import Footer from "../../shared/Footer/footer";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function SignUp() {
   const [email, setEmail] = React.useState("");
@@ -9,9 +11,12 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [, setError] = React.useState("");
 
+  const navigate = useNavigate();
+
   const handleSignUp = () => {
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setError("Passwords does not match");
+      toast.error("Passwords does not match");
       return false;
     }
     return true;
@@ -26,18 +31,17 @@ export default function SignUp() {
       method: "POST",
       body: formData,
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
+      .then(() => {
+        toast.success("Sign up successfully");
         localStorage.setItem("isLogin", "true");
         localStorage.setItem("email", email);
         localStorage.setItem("password", password);
+        navigate("/user-profile");
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Sign up failed");
         localStorage.setItem("isLogin", "false");
+        console.log(err);
       });
   }
 
@@ -177,7 +181,7 @@ export default function SignUp() {
                   </div>
                 </div>
                 <button
-                  type="submit"
+                  type="button"
                   className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-2xl px-5 py-2.5 text-center light:bg-primary-600 light:hover:bg-primary-700 light:focus:ring-primary-800"
                   style={{
                     background: "black",

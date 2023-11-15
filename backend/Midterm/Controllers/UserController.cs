@@ -49,7 +49,7 @@ namespace Midterm.Controllers
 
         // GET: api/<UerController>/2
         [HttpGet("{id}")]
-        [Authorize(Roles = nameof(Role.Admin))]
+        //[Authorize(Roles = nameof(Role.Admin))]
         public async Task<ActionResult<User>> GetSingleUser(Guid id)
         {
             try

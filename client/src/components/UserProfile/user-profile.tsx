@@ -17,34 +17,51 @@ import CoverImage from "./Section/CoverImage";
 import Dashboard from "./Section/Dashboard";
 import InfoModal from "./Section/InfoModal";
 import AccountModal from "./Section/AccountModal";
-
+import Nav3Avatar from "./Section/Nav3Avatar";
+import { DEFAULT_IMAGE } from "../../shared/constants";
 
 export default function UserProfile() {
-   const [isDashBoardActive, setDashBoardActive] = useState(true);
-   const [isBasicInfoActive, setBasicInfoActive] = useState(false);
-   const [isAcountActive, setAcountActive] = useState(false);
-   const [isBillingActive, setBillingActive] = useState(false);
-   const [isSettingActive, setSettingActive] = useState(false);
-   const [isHelpActive, setHelpActive] = useState(false);
-   const [isLogOutActive, setLogOutActive] = useState(false);
-
+  const [isDashBoardActive, setDashBoardActive] = useState(true);
+  const [isBasicInfoActive, setBasicInfoActive] = useState(false);
+  const [isAcountActive, setAcountActive] = useState(false);
+  const [isBillingActive, setBillingActive] = useState(false);
+  const [isSettingActive, setSettingActive] = useState(false);
+  const [isHelpActive, setHelpActive] = useState(false);
+  const [isLogOutActive, setLogOutActive] = useState(false);
 
   return (
     <div className="relative">
       <div className="bg-slate-600 w-full h-full">
-        <Header />
+        <Header isLogin={true}>
+          <Nav3Avatar
+            avatar={
+              localStorage.getItem("avatar")?.toString() ||
+              DEFAULT_IMAGE[0]
+            }
+            userName={
+              localStorage.getItem("email")?.toString() === undefined
+                ? ""
+                : localStorage.getItem("email")?.toString()
+            }
+          />
+        </Header>
       </div>
 
       <div className="grid grid-cols-6 pt-32">
         <div className="col-span-1 flex flex-col">
           <SideBar
-            avatar={"/src/assets/hhman-ava.png"}
-            user_name={"Ainz Own Goal"}
-            gmail={"hhman@hcmus.edu.vn"}
+            avatar={
+              localStorage.getItem("avatar")?.toString() ||
+              DEFAULT_IMAGE[0]
+            }
+            user_name={
+              localStorage.getItem("username")?.toString() || ""
+            }
+            gmail={localStorage.getItem("email")?.toString() || ""}
           >
             <SideBarItem
               icon={<FontAwesomeIcon icon={faChartLine} className="text-3xl" />}
-              text={"Dash Board"}
+              text={"Dashboard"}
               active={isDashBoardActive}
               handleClick={() => {
                 setDashBoardActive(true);
@@ -72,7 +89,7 @@ export default function UserProfile() {
             />
             <SideBarItem
               icon={<FontAwesomeIcon icon={faUser} className="text-3xl" />}
-              text={"Acount"}
+              text={"Account"}
               active={isAcountActive}
               handleClick={() => {
                 setDashBoardActive(false);
@@ -154,17 +171,15 @@ export default function UserProfile() {
         </div>
 
         <div className="col-span-5 px-16 flex flex-col gap-16">
-          <CoverImage
-            coverImage={
-              localStorage.getItem("coverImage")?.toString() ||
-              "/src/assets/maldives3.jpg"
-            }
-          />
+          <CoverImage coverImage={localStorage.getItem("coverImage")?.toString() || DEFAULT_IMAGE[1]} />
 
-               {isDashBoardActive && <Dashboard />}
-               {isBasicInfoActive && <InfoModal />}
-               {isAcountActive && <AccountModal emailUser={"hhman@student.hcmus"} />}
+          {isDashBoardActive && <Dashboard />}
+          {isBasicInfoActive && <InfoModal />}
+          {isAcountActive && (
+            <AccountModal emailUser={localStorage.getItem("email") || ""} />
+          )}
 
+          {/* Footer */}
           <div className="w-full mx-auto text-3xl ">
             <div className="md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200">
               {/* Social links */}
