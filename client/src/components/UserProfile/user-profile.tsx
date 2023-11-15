@@ -49,7 +49,7 @@ export default function UserProfile() {
           >
             <SideBarItem
               icon={<FontAwesomeIcon icon={faChartLine} className="text-3xl" />}
-              text={"Dash Board"}
+              text={"Dashboard"}
               active={isDashBoardActive}
               handleClick={() => {
                 setDashBoardActive(true);
@@ -77,7 +77,7 @@ export default function UserProfile() {
             />
             <SideBarItem
               icon={<FontAwesomeIcon icon={faUser} className="text-3xl" />}
-              text={"Acount"}
+              text={"Account"}
               active={isAcountActive}
               handleClick={() => {
                 setDashBoardActive(false);
@@ -161,7 +161,6 @@ export default function UserProfile() {
         <div className="col-span-5 px-16 flex flex-col gap-16">
           <CoverImage
             coverImage={
-              localStorage.getItem("coverImage") ? localStorage.getItem("coverImage").toString():
               "/src/assets/maldives3.jpg"
             }
           />
